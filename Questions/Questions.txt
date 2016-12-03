@@ -1,3 +1,0 @@
-#	This is a file that contains a list of questions and answers to be parsed
-#	into the database being used in the final project
-
