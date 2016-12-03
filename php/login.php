@@ -6,7 +6,7 @@
 		#check for each student if the person attempting to login is 
 		#reconized in the system as a student
 		foreach($dbh->query("select sid,password from Student") as $row){
-			if($row[0] == $_POST["username"]){
+			if($row[0] == intval($_POST["username"])){
 				$reconized = 1;
 				if($row[1] == $_post["password"]){
 					$reconized = 2;
@@ -20,7 +20,7 @@
 			#check for each teacher if the person attempting to login is 
 			#reconized in the system as a teacher
 			foreach($dbh->query("select tid,password from Teacher") as $row){
-				if($row[0] == $_POST["username"]){
+				if($row[0] == intval($_POST["username"])){
 					$reconized = 1;
 					if($row[1] == $_post["password"]){
 						$reconized = 3;

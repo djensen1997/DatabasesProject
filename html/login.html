@@ -23,7 +23,7 @@
 			var varParts = parts[1].split("=");
 			for(var i = 0; i < varParts.length; i++){
 				if(varParts[i].localeCompare("msg") == 0){
-					msg = varParts[1].replace("%20", " ");
+					msg = decodeURI(varParts[1]);
 					document.write('<h1>' + msg + '</h1>');
 				}
 			}
