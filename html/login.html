@@ -4,12 +4,19 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Online Exam Login</title>
+		<style>
+			h1{
+				color: #FF0000;
+			}
+		</style>
 	</head>
 	<body style="background-color:cyan;">
 		<form action="../php/login.php" method="post">
 		Student ID: <input type="text" name="username" /> <br/>
 		Password: <input type="password" name="password" /> <br/>
-		<input type="submit" name="sub" value="Login/ Create Account">
+		<input type="submit" name="sub" value="Login">
+		<h1>$msg</h1>
 		</form>
+
 	</body>
 </html>
