@@ -14,9 +14,20 @@
 		<form action="../php/login.php" method="post">
 		Student ID: <input type="text" name="username" /> <br/>
 		Password: <input type="password" name="password" /> <br/>
-		<input type="submit" name="sub" value="Login">
-		<h1>$msg</h1>
+		<input type="submit" name="sub" value="Login"> <br/>
 		</form>
+		<script>
+			var msg = "";
+			var url = window.location.href;
+			var parts = url.split("?");
+			var varParts = parts[1].split("=");
+			for(var i = 0; i < varParts.length; i++){
+				if(varParts[i].localeCompare("msg") == 0){
+					msg = varParts[1].replace("%20", " ");
+					document.write('<h1>' + msg + '</h1>');
+				}
+			}
+		</script>
 
 	</body>
 </html>
