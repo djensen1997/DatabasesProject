@@ -27,7 +27,7 @@
 					echo '<option>'.$exam[0].'</option>';
 				}
 			echo '</select>';
-			echo '<input type="submit" name="submit" value="Take Exam" /> </br>'
+			echo '<input type="submit" name="submit" value="Take Exam" /> </br>';
 		echo '</form>';
 	echo '</body>';
 ?>
