@@ -19,7 +19,7 @@
 		if($reconized == 0){
 			#check for each teacher if the person attempting to login is 
 			#reconized in the system as a teacher
-			foreach($dbh->query("select tid,pass from Teacher") as $row){
+			foreach($dbh->query("select tid,password from Teacher") as $row){
 				if($row[0] == $_POST["username"]){
 					$reconized = 1;
 					if($row[1] == $_post["password"]){
@@ -47,7 +47,6 @@
 
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
-		header('Location: ../html/userportal.html');
 		die();
 	}
 
