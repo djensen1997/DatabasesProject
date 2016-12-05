@@ -16,7 +16,7 @@
 		die();
 	}
 	echo '<body style="background-color:pink;">';
-		echo '<strong> Welcome Back '.$_POST['username'].'</strong>'; #nice welcome
+		echo '<strong> Welcome Back '.$_GET['username'].'</strong>'; #nice welcome
 		echo '</br> </br> </br> </br>'; #spacing
 		#the acutal exam selection
 		echo 'Select an exam to take </br>';
