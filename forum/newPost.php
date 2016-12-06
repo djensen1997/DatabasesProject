@@ -10,5 +10,6 @@
 			print "ERROR!" . $e->getMessage()."<br/>";
 			die();
 		}
+		header('Location: listPost.php');
 
 ?>
