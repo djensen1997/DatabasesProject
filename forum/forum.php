@@ -9,7 +9,7 @@
 			$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=danej', "cs3425gr", "cs3425gr");
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			#list out the topics
-			echo '<form action="newPost.php?username="'.$_GET['username'].' method="post">';
+			echo '<form action="listPost.php?username="'.$_GET['username'].'" method="post">';
 			echo "<table border='1'>";
 			echo "<TR>";
 			echo "<TH> Topic Number </TH>";
@@ -23,7 +23,8 @@
 				echo "<TD>".$i."</TD>";
 				echo "<TD>".$row[0]."</TD>";
 				echo "<TD>".$row[1]."</TD>";
-				echo '<TD><input type="submit" name="list" value="List Postings"></TD>';
+				echo '<TD><input type="button" name="list" value="List Postings"></TD>';
+				echo '<input type="hidden" name="topic" value="'.$row[0].'">';
 				echo "</TR>";
 			}
 			echo '</table>';
@@ -38,7 +39,6 @@
 
 
 	?>
-
 
 </body>
 </html>
