@@ -21,7 +21,7 @@
 
 		#if the student's login info is correct
 		if($reconized == 1){
-			header('Location: forum.html?username='.$_POST['username']);
+			header('Location: forum.php?username='.$_POST['username']);
 		}
 
 	}catch (PDOException $e){
