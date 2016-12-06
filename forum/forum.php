@@ -9,7 +9,8 @@
 			$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=danej', "cs3425gr", "cs3425gr");
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			#list out the topics
-			echo '<form action="listPost.php?username="'.$_GET['username'].'" method="post">';
+			echo '<form action="listPost.php" method="post">';
+			echo '<input type="hidden" name="username" value="'.$_GET['username'].'">'
 			echo "<table border='1'>";
 			echo "<TR>";
 			echo "<TH> Topic Number </TH>";

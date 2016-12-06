@@ -34,7 +34,10 @@
 		}
 
 		<br/>
-	echo '<form action="newPost.php?username="'.$_GET['username'].'"?topic="'.$_POST['topic'].'"">';
+
+	echo '<form action="newPost.php">';
+		echo '<input type="hidden" name="username" value="'.$_POST['username'].'">'
+		echo '<input type="hidden" name="topic" value="'.$_POST['topic'].'">'
 		echo 'Add Post: <input type="text" name="post" maxlength="100">'
 		echo '<input type="submit" name="sub" value="Post">'
 		echo '<br/>'
