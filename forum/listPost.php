@@ -34,7 +34,7 @@
 			die();
 		}
 
-		<br/>
+		echo '<br/>';
 
 	echo '<form action="newPost.php">';
 		echo '<input type="hidden" name="username" value="'.$_POST['username'].'">'
