@@ -5,6 +5,7 @@
 <body>
 	<button type="button" onclick="back()">Back to Main Page</button><br/>
 	<?php
+		header('Location: listPost.php');
 		echo 'var username='.$_GET['username'];
 		try{
 			$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=danej', "cs3425gr", "cs3425gr");
