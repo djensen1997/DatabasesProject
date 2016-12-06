@@ -14,23 +14,9 @@
 				}
 			}
 		}
-
-		if($reconized == 0){
-			#check for each teacher if the person attempting to login is 
-			#reconized in the system as a teacher
-			foreach($dbh->query("select tid,password from Teacher") as $row){
-				if($row[0] == intval($_POST["username"])){
-					if($row[1] == $_POST["password"]){
-						$reconized = 3;
-					}else{
-						$reconized = 0;
-					}
-				}
-			}
-		}
 		#if the student isn't reconized
 		if($reconized == 0){
-			header('Location: ../html/login.html?msg='.urldecode("Username or Password not Reconized"));
+			header('Location: login.html?msg='.urldecode("Username or Password not Reconized"));
 		}
 
 		#if the student's login info is correct
