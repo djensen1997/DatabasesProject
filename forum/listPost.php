@@ -17,12 +17,12 @@
 			echo "<TH> Post </TH>";
 			echo "</TR>";
 			$i = 0;
-			foreach($dbh->query('select * from Posts where Topic='.$_POST['topic'].'")') as $row){
+			foreach($dbh->query('select * from Posts where Topic="'.$_POST['topic'].'"') as $row){
 				$i = $i + 1;
 				echo "<TR>";
 				echo "<TD>".$i."</TD>";
+				echo "<TD>".$row[2]."</TD>";
 				echo "<TD>".$row[3]."</TD>";
-				echo "<TD>".$row[4]."</TD>";
 				echo "</TR>";
 			}
 			echo '</table>';
