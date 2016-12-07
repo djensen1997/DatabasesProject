@@ -2,7 +2,7 @@
 try {
 	$title=$_POST['title'];
 	$username=$_POST['username'];
-	$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=airline', "cs3425", "grader");
+	$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=airline', "cs3425gr", "cs3425gr");
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	$statement = $dbh->prepare("insert into topics values(".$title.",0,".$username.");"
