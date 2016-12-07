@@ -3,8 +3,16 @@
 <head>
 </head>
 <body>
-	<button type="button" onclick="createDiscTopic()">New Discussion Topic</button><br/>
+
 	<?php
+		echo '<form action="newPost.php" method="post">';
+			echo '<input type="text" name="title" maxlength="100">';
+			echo '<input type="hidden" name="username" value=.$_GET['username']>';
+			echo '<input type="submit" name="subs" value="Add New Topic">';
+			echo '<br/>';
+		echo '</form>';
+
+
 		try{
 			$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=danej', "cs3425gr", "cs3425gr");
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
