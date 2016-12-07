@@ -5,7 +5,7 @@
 <body>
 
 	<?php
-		echo '<form action="newPost.php" method="post">';
+		echo '<form action="newTopic.php" method="post">';
 			echo '<input type="text" name="title" maxlength="100">';
 			echo '<input type="hidden" name="username" value='.$_GET['username'].'>';
 			echo '<input type="submit" name="subs" value="Add New Topic">';
