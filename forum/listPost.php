@@ -5,8 +5,7 @@
 <body>
 	<button type="button" onclick="back()">Back to Main Page</button><br/>
 	<?php
-		header('Location: listPost.php');
-		echo 'var username='.$_GET['username'];
+		#header('Location: listPost.php');
 		try{
 			$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=danej', "cs3425gr", "cs3425gr");
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
