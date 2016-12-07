@@ -23,6 +23,7 @@
 			echo "<TR>";
 			echo "<TH> Topic Number </TH>";
 			echo "<TH> Topic Title </TH>";
+			echo "<TH> Created By </TH>"
 			echo "<TH> Num Replies </TH>";
 			echo "</TR>";
 			$i = 0;
@@ -32,6 +33,7 @@
 				echo "<TD>".$i."</TD>";
 				echo "<TD>".$row[0]."</TD>";
 				echo "<TD>".$row[1]."</TD>";
+				echo "<TD>".$row[2]."</TD>";
 				echo '<TD><input type="submit" name="list" value="List Postings"></TD>';
 				echo '<input type="hidden" name="topic" value="'.$row[0].'">';
 				echo "</TR>";
