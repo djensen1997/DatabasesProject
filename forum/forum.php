@@ -23,7 +23,7 @@
 			echo "<TR>";
 			echo "<TH> Topic Number </TH>";
 			echo "<TH> Topic Title </TH>";
-			echo "<TH> Created By </TH>"
+			echo "<TH> Created By </TH>";
 			echo "<TH> Num Replies </TH>";
 			echo "</TR>";
 			$i = 0;
