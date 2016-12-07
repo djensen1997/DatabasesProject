@@ -24,7 +24,7 @@
 				echo "<TD>".$i."</TD>";
 				echo "<TD>".$row[0]."</TD>";
 				echo "<TD>".$row[1]."</TD>";
-				echo '<TD><input type="button" name="list" value="List Postings"></TD>';
+				echo '<TD><input type="submit" name="list" value="List Postings"></TD>';
 				echo '<input type="hidden" name="topic" value="'.$row[0].'">';
 				echo "</TR>";
 			}
