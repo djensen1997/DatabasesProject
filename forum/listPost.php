@@ -17,7 +17,7 @@
 			echo "<TH> Post </TH>";
 			echo "</TR>";
 			$i = 0;
-			foreach($dbh->query("select * from Posts where Topic=".$_POST['topic']) as $row){
+			foreach($dbh->query('select * from Posts where Topic='.$_POST['topic'].'")') as $row){
 				$i = $i + 1;
 				echo "<TR>";
 				echo "<TD>".$i."</TD>";
