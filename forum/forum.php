@@ -27,7 +27,7 @@
 			$i = 0;
 			foreach($dbh->query("select * from Topics") as $row){
 				$i = $i + 1;
-				echo '<form action=listPost.php" method="post">';
+				echo '<form action="listPost.php" method="post">';
 				echo '<input type="hidden" name="username" value="'.$_GET['username'].'">';
 				echo "<TR>";
 				echo "<TD>".$i."</TD>";
