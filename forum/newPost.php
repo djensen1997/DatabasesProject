@@ -10,6 +10,6 @@
 			print "ERROR!" . $e->getMessage()."<br/>";
 			die();
 		}
-		header('Location: listPost.php');
+		header('Location: forum.php?username='.$_POST['username']);
 
 ?>
