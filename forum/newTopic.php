@@ -12,5 +12,5 @@ try {
 	print "Error!" . $e->getMessage()."<br/>";
 	die();
 }
-	header('Location: forum.php?'.$_POST['username']);
+	header('Location: forum.php?username='.$_POST['username']);
 ?>
