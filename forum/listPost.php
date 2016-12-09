@@ -6,7 +6,7 @@
 	
 	<?php
 #header('Location: listPost.php');
-		echo '<form action="forum.php?username="'.$_POST["username"].' method="post">';
+		echo '<form action="forum.php?username="'.$_POST["username"].'" method="post">';
 			echo '<input type="submit" name="subs" value="Back to Main Page"><br/>';
 		echo '</form>';
 		echo $_POST['topic'];
