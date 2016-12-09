@@ -6,7 +6,7 @@
 			#call the add post procedure
 			if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confirm'])){
 				if(strcmp($_POST['password'], $_POST['confirm']) == 0){
-					$dbh->query('insert into User("'.$_POST['username'].'", "'.$_POST['password'].'")');
+					$dbh->query('insert into User values("'.$_POST['username'].'", "'.$_POST['password'].'")');
 				}else{
 					header('Location: newUser.html?msg='.urldecode("Passwords do not match"));
 				}
