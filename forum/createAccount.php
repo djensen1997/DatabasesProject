@@ -5,10 +5,10 @@
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			#call the add post procedure
 			if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confirm'])){
-				if($_POST['password'] == $_POST['confirm']){
+				if(strcmp($_POST['password'], $_POST['confirm']) == 0){
 					$dbh->query('insert into User("'.$_POST['username'].'", "'.$_POST['password'].'")');
 				}else{
-					header('Location: newUser.html?msg='..urldecode("Passwords do not match"));
+					header('Location: newUser.html?msg='.urldecode("Passwords do not match"));
 				}
 			}else{
 				header('Location: newUser.html');
