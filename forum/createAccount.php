@@ -17,7 +17,7 @@
 			
 		}catch (PDOException $e){
 			print "ERROR!" . $e->getMessage()."<br/>";
-			die();
+			header('Location: newUser.html');
 		}
 		header('Location: forum.php?username='.$_POST['username']);
 
