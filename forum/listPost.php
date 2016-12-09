@@ -3,9 +3,12 @@
 <head>
 </head>
 <body>
-	<button type="button" onclick="back()">Back to Main Page</button><br/>
+	
 	<?php
 #header('Location: listPost.php');
+		echo '<form action="forum.php?username="'.$_POST["username"].' method="post">';
+			echo '<input type="submit" name="subs" value="Back to Main Page"><br/>';
+		echo '</form>';
 		echo $_POST['topic'];
 		try{
 			$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=danej', "cs3425gr", "cs3425gr");
