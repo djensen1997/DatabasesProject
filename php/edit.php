@@ -12,7 +12,7 @@
 		#get the exam names
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$questions = $dbh->query("select * from Question where eName='".$exam.".");
+		$questions = $dbh->query("select * from Question where eName='".$exam."'");
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
