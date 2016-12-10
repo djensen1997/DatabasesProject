@@ -8,7 +8,7 @@
 	$username = $_COOKIE['user'];
 	$exam = $_POST['exam'];
 	$questions;
-	$points;
+	$points = 0;
 	try{
 		#get the exam names
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
@@ -53,17 +53,18 @@
 				echo "<input type='hidden' name='exam' value='".$exam."'>";
 				echo "<input type='hidden' name='number' value='".$row[5]."'>";
 				echo '</form>';
-				echo '<form action="AddQuestion.php" method="post">';
+				
+			}
+			echo '</table>';
+			echo '<form action="AddQuestion.php" method="post">';
 				echo '<input type="hidden" name="exam_name" value="'.$exam.'" >';
 				echo '<input type="hidden" name="points" value="'.$points.'" >';
 				echo '<input type="submit" name="addquestion" value="Add New Question">';
 				echo '</form>';
-			}
-			echo '</table>';
-			
 			echo '<form action="teacherportal.php">';
 				echo '<input type="submit" name="submit" value="Back" /> </br>';
 			echo '</form>';
+			
 		echo '</form>';
 	echo '</body>';
 ?>
