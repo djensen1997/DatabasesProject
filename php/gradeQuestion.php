@@ -12,7 +12,7 @@ try {
 	$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore',"cs3425gr", "cs3425gr");
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	if (strcmp($answer = $correct)) {
+	if (strcmp($answer,$correct)) {
 		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',true)');
 	} else {
 		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',false)');
