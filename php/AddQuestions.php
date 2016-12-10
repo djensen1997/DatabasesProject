@@ -33,7 +33,8 @@ echo '<form action="<php AddQuestion()>">';
 	echo "<TR>";
 	echo "<TD></TD>";
 	echo "<TD><input type='submit' name='Add Question' value='Next Question'></TD>";
-	echo "</form><form action='<php Submit()>";
+	echo "</form>"
+	echo "<form action='<php Submit()>";
 	echo "<TD><input type='submit' name='Finish' value='Finish'></TD>";
 	echo "</form>";
 	echo "</TR>";
