@@ -5,7 +5,7 @@
 		#get the exam names
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$question = $dbh->query("select * from question where eName='".$_POST['exam']."' and number=".$_POST['number']);
+		$question = $dbh->query("select * from Question where eName='".$_POST['exam']."' and number=".$_POST['number']);
 		if(isset($_POST['delete'])){
 			$dbh->query("delete from Question where eName='".$_POST['exam']."' and number=".$_POST['number']);
 			foreach($question as $row){
