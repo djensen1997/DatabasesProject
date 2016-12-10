@@ -5,14 +5,14 @@
 
 try {
 	$sId = $_POST['sId'];
-	$eId = $_POST['eId'];
+	$eName = $_POST['eName'];
 	$number=$_POST['number'];
 	$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore',"cs3425gr", "cs3425gr");
-	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	echo '<form method="post">';
 
-	foreach ($dbh->query("Select number, question, choiceA, choiceB, choiceC, choiceD, correctAnswer from Question where eId = ".$eId." and number=".$number) as $row) {
+	foreach ($dbh->query('Select number, question, choiceA, choiceB, choiceC, choiceD, correctAnswer from Question where eName = "'.$eName.'" and number='.$number) as $query) {
 		echo "<p>".$query[0].".) ".$query[1]."</p>";
 		echo "</br>";
 		echo '<input type="radio" name="choiceA" value="A" checked>'.$query[2]."</br>";
