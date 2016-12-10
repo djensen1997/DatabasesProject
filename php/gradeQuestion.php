@@ -13,9 +13,9 @@ try {
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	if (strcmp($answer,$correct)) {
-		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',true)');
+		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',1)');
 	} else {
-		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',false)');
+		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',0)');
 	}
 
 	$maxNumber = mysql_fetch_array($dbh->query('select max(number) from Question where eName = "'.$eName.'"'));
