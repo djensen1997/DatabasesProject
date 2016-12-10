@@ -29,7 +29,7 @@
 				foreach($exams as $exam){
 					$cont = 0;
 					foreach($gradedExams as $gExam) {
-						if(strcmp($gExam,$exam)==0) {
+						if(strcmp($gExam[0],$exam[0])==0) {
 							$cont = 1;
 						}
 					}
