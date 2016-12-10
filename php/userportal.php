@@ -28,7 +28,7 @@
 				#adds each exam name as an option
 				foreach($exams as $exam){
 					foreach($gradedExams as $gExam) {
-						if(strcmp($gExam,$exam) {
+						if(strcmp($gExam,$exam)==0) {
 							continue;
 						}
 					}
