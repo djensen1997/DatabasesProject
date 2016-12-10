@@ -32,8 +32,8 @@
 		#if the student's login info is correct
 		if($reconized == 2){
 			$name = 'user';
-			setcookie($name, $_POST['username'], time() + (86400 * 30), "/../");
-			setcookie('roll', 'student', time() + (86400*30), "/../");
+			setcookie($name, $_POST['username'], time() + (86400 * 30), "../");
+			setcookie('roll', 'student', time() + (86400*30), "../");
 
 			header('Location: userportal.php');
 		}
@@ -41,8 +41,8 @@
 		#if the teacher's login info is correct
 		if($reconized == 3){
 			$name = 'user';
-			setcookie($name, $_POST['username'], time() + (86400 * 30), "/../");
-			setcookie('roll', 'teacher', time() + (86400*30), "/../");
+			setcookie($name, $_POST['username'], time() + (86400 * 30), "../");
+			setcookie('roll', 'teacher', time() + (86400*30), "../");
 			header('Location: teacherportal.php');
 		}
 
