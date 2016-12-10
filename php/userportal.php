@@ -9,7 +9,7 @@
 		#get the exam names
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$exams = $dbh->query("select name from Exam");
+		$exams = $dbh->query("select name, eId from Exam");
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
 		header('Location: ../html/userportal.html');
@@ -21,12 +21,13 @@
 		#the acutal exam selection
 		echo 'Select an exam to take </br>';
 		echo '<form action="../php/question.php" method="post">';
-			echo 'Exam: <select name="exam">';
+			echo 'Exam: <select name="eName">';
 				#adds each exam name as an option
 				foreach($exams as $exam){
 					echo '<option>'.$exam[0].'</option>';
 				}
 			echo '</select>';
+			echo '<input type="hidden" name="number" value="1">';
 			echo '<input type="hidden" name="sId" value="'.$_GET['username'].'">';
 			echo '<input type="submit" name="submit" value="Take Exam" /> </br>';
 		echo '</form>';
