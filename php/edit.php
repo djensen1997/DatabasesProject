@@ -36,7 +36,7 @@
 			echo "<TH> Worth </TH>";//7
 			echo "</TR>";
 			foreach($questions as $row){
-				$points += row[7];
+				$points += $row[7];
 				echo '<form action="../php/editquestion.php" method="post">';
 				echo "<TR>";
 				echo "<TD>".$row[5]."</TD>";
