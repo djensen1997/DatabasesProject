@@ -8,7 +8,7 @@ try {
 	$eName = $_POST['eName'];
 	$number=$_POST['number'];
 	$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore',"cs3425gr", "cs3425gr");
-	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 	echo '<form method="post">';
 
