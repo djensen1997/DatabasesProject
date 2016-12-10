@@ -13,7 +13,7 @@
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$exams = $dbh->query("select name from Exam");
-		$gradedExams = $dbh->query("select eName from eGrade");
+		$gradedExams = $dbh->query("select eName from eGrade where sId =".$username);
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
@@ -51,7 +51,7 @@
 		echo "<TH> Grade / Points </TH>";
 		echo "</TR>";
 
-		foreach ( $dbh->query("select eName, grade, points from eGrade") as $row) {
+		foreach ( $dbh->query("select eName, grade, points from eGrade where sId =".$username) as $row) {
 			echo "<TR>";
 			echo "<TD>".$row[0]."</TD>";
 			echo "<TD>".$row[1]." / ".$row[2]."</TD>";
