@@ -16,6 +16,8 @@
 	$num += 1;
 	setcookie('num', $num,  time() + (86400/48), "/");
 	if(isset($_POST['Finish'])){
+		unset($_COOKIE['exam']);
+		unset($_COOKIE['num']);
 		header('Location: teacherportal.php');
 	}else{
 		header('Location: AddQuestions.php');
