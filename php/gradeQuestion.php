@@ -28,7 +28,7 @@ try {
 
 	echo '<input type="hidden" name="sId" value ="'.$sId.'">';
 	echo '<input type="hidden" name="eName" value ="'.$eName.'">';
-	echo '<input type="hidden" name="number" value ="'.$number.'">';
+	echo '<input type="hidden" name="number" value ="'.($number+1).'">';
 
 	echo '<input type="submit">';
 
