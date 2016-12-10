@@ -9,6 +9,7 @@
 	$exam = $_POST['exam'];
 	$questions;
 	$points = 0;
+	$num = 0;
 	try{
 		#get the exam names
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
@@ -36,6 +37,7 @@
 			echo "<TH> Worth </TH>";//7
 			echo "</TR>";
 			foreach($questions as $row){
+				$num += 1;
 				$points += $row[7];
 				echo '<form action="../php/editquestion.php" method="post">';
 				echo "<TR>";
@@ -59,6 +61,7 @@
 			echo '<form action="AddQuestions.php" method="post">';
 				echo '<input type="hidden" name="exam_name" value="'.$exam.'" >';
 				echo '<input type="hidden" name="points" value="'.$points.'" >';
+				echo '<input type="hidden" name="num" value="'.$num.'" >';
 				echo '<input type="submit" name="addquestion" value="Add New Question">';
 				echo '</form>';
 			echo '<form action="teacherportal.php">';
