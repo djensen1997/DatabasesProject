@@ -27,12 +27,17 @@
 			echo 'Exam: <select name="eName">';
 				#adds each exam name as an option
 				foreach($exams as $exam){
+					$cont = 0;
 					foreach($gradedExams as $gExam) {
-						if(strcmp($gExam,$exam)==0) {
-							continue;
+						echo '<p>'.$gExam[0]." ".$exam[0].'</p>';
+						if(strcmp($gExam[0],$exam[0])==0) {
+							$cont = 1;
+							break;
 						}
 					}
-					echo '<option>'.$exam[0].'</option>';
+					if ($cont == 0) {
+						echo '<option>'.$exam[0].'</option>';
+					}
 				}
 			echo '</select>';
 			echo '<input type="hidden" name="sId" value="'.$username.'">';
