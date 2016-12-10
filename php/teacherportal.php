@@ -4,7 +4,7 @@
 </head>
 
 <?php
-	$username = $_COOKIE['username'];
+	$username = $_COOKIE['user'];
 	$exams; #holds all the exam names
 	try{
 		#get the exam names

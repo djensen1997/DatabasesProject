@@ -5,7 +5,7 @@
 
 <?php
 	$exams; #holds all the exam names
-	$username = $_COOKIE['username'];
+	$username = $_COOKIE['user'];
 	try{
 		#get the exam names
 
