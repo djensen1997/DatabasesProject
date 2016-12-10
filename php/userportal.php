@@ -32,6 +32,22 @@
 			echo '<input type="hidden" name="number" value="1">';
 			echo '<input type="submit" name="submit" value="Take Exam" /> </br>';
 		echo '</form>';
+			
+		echo "<table border='1'>";
+		echo "<TR>";
+		echo "<TH> Exam Name </TH>";
+		echo "<TH> Grade / Points </TH>";
+		echo "</TR>";
+
+		foreach ( $dbh->query("select eName, grade, points from eGrade") as $row) {
+			echo "<TR>";
+			echo "<TD>".$row[0]."</TD>";
+			echo "<TD>".$row[1]." / ".$row[2]."</TD>";
+			echo "</TR>";
+		}
+
+		echo "</table>";
+
 		echo '<a href="https://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>';
 	echo '</body>';
 ?>
