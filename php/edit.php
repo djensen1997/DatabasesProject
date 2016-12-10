@@ -56,7 +56,7 @@
 				
 			}
 			echo '</table>';
-			echo '<form action="AddQuestion.php" method="post">';
+			echo '<form action="AddQuestions.php" method="post">';
 				echo '<input type="hidden" name="exam_name" value="'.$exam.'" >';
 				echo '<input type="hidden" name="points" value="'.$points.'" >';
 				echo '<input type="submit" name="addquestion" value="Add New Question">';
@@ -64,7 +64,7 @@
 			echo '<form action="teacherportal.php">';
 				echo '<input type="submit" name="submit" value="Back" /> </br>';
 			echo '</form>';
-			
+
 		echo '</form>';
 	echo '</body>';
 ?>
