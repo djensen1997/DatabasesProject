@@ -23,7 +23,6 @@
 		echo '<form action="../php/edit.php" method="post">';
 			echo "<table border='1'>";
 			echo "<TR>";
-			echo "<TH> Exam ID </TH>";
 			echo "<TH> Exam Name </TH>";
 			echo "<TH> Total Points </TH>";
 			echo "<TH> Date Created </TH>";
@@ -33,7 +32,6 @@
 				echo "<TD>".$row[0]."</TD>";
 				echo "<TD>".$row[1]."</TD>";
 				echo "<TD>".$row[2]."</TD>";
-				echo "<TD>".$row[3]."</TD>";
 				echo '<TD><input type="submit" name="edit" value="Edit"></TD>';
 				echo "</TR>";
 			}
