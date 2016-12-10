@@ -32,6 +32,9 @@ if(isset($_POST['exam_name'])){
 		die();
 	}
 }
+if(isset($_POST['points'])){
+	$points = $_POST['points'];
+}
 	echo '<html><br/><body>';
 	echo '<h1>Currently Adding Questions for Exam: '.$exam;
 	echo '<form action="SubmitQuestion.php" method="post">';
