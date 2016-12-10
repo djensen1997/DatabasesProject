@@ -11,7 +11,7 @@
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$exams = $dbh->query("select name from Exam");
 	}catch (PDOException $e){
-		print "ERROR!" . $e->getMessage()."<br/>;
+		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
 	}
 	echo '<body style="background-color:pink;">';
