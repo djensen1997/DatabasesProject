@@ -2,7 +2,7 @@
 
 <?php
 $exam;
-$points;
+$points = 0;
 if(isset($_POST['exam_name'])){
 	//cookie only lasts 30 minutes
 	setcookie('exam', $_POST['exam_name'], time() + (86400/48), "/");
@@ -23,8 +23,8 @@ if(isset($_POST['exam_name'])){
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		foreach($dbh->query("select * from Exam") as $temp){
-			if(strcmp($temp[0], $exam) == 0){
-				$points = $temp[1];
+			if(strcmp($temp[1], $exam) == 0){
+				$points = $temp[0];
 			}
 		}
 	}catch (PDOException $e){
