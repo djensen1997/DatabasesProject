@@ -36,7 +36,7 @@ echo '<form action="<php AddQuestion()>">';
 	echo "</form><form action='<php Submit()>";
 	echo "<TD><input type='submit' name='Finish' value='Finish'></TD>";
 	echo "</form>";
-	echo "</TR>"
+	echo "</TR>";
 	echo "</table>";
 
 
