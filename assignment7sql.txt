@@ -1,0 +1,226 @@
+MariaDB [danej]> create table User(
+    -> username varchar(20) primary key,
+    -> password varchar(20) not null);
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [danej]> insert into User values('danej','testpw');
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [danej]> grant User cs3425gr
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'User cs3425gr' at line 1
+MariaDB [danej]> grant cs3425gr User
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'cs3425gr User' at line 1
+MariaDB [danej]> grant all privileges on danej.* to 'cs3425gr'@'%' with grant option;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [danej]> describe User;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| username | varchar(20) | NO   | PRI | NULL    |       |
+| password | varchar(20) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [danej]> create table Topics(
+    -> title varchar(100) primary key,
+    -> num_replies int not null);
+Query OK, 0 rows affected (0.01 sec)
+
+MariaDB [danej]> select * from User;
++----------+----------+
+| username | password |
++----------+----------+
+| danej    | testpw   |
++----------+----------+
+1 row in set (0.00 sec)
+
+MariaDB [danej]> insert into Topics values("TESTING THE ONLINE FORUM",0);
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [danej]> create table Posts(
+    -> Post_Num int not null AUTO_INCREMENT,
+    -> Topic varchar(20) references(Topics.title),
+    -> Created_By varchar(20\c
+MariaDB [danej]> create table Posts(
+    -> Post_Num int not null AUTO_INCREMENT,
+    -> Topic varchar(100) references(Topics.title),
+    -> Created_By varchar(20) references(User.username),
+    -> Contents varchar(100) not null,
+    -> primary key(Post_Num));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(Topics.title),
+Created_By varchar(20) references(User.username),
+Contents varch' at line 3
+MariaDB [danej]> create table Posts( Post_Num int not null AUTO_INCREMENT, Topic varchar(100) references Topics(title), Created_By varchar(20) references User(username), Contents varchar(100) not null, primary key(Post_Num));
+Query OK, 0 rows affected (0.01 sec)
+
+MariaDB [danej]> describe Posts
+    -> ;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| Post_Num   | int(11)      | NO   | PRI | NULL    | auto_increment |
+| Topic      | varchar(100) | YES  |     | NULL    |                |
+| Created_By | varchar(20)  | YES  |     | NULL    |                |
+| Contents   | varchar(100) | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
+
+MariaDB [danej]> create trigger addedPost
+    -> after insert on Posts
+    -> for each row
+    -> begin
+    -> update Topics
+    -> set num_replies = num_replies + 1
+    -> where NEW.Topic = Topics.title;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 7
+MariaDB [danej]> delimiter //
+MariaDB [danej]> create trigger addedPost
+    ->     -> after insert on Posts
+    ->     -> for each row
+    ->     -> begin
+    ->     -> update Topics
+    ->     -> set num_replies = num_replies + 1
+    ->     -> where NEW.Topic = Topics.title;\c
+MariaDB [danej]> create trigger addedPost
+    -> 
+    -> after insert on Posts
+    -> for each row
+    -> begin
+    -> update Topics
+    -> set num_replies = num_replies + 1
+    -> where NEW.Topic = Topics.title;
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [danej]> select * from Topics;
+    -> //
++--------------------------+-------------+
+| title                    | num_replies |
++--------------------------+-------------+
+| TESTING THE ONLINE FORUM |           0 |
++--------------------------+-------------+
+1 row in set (0.00 sec)
+
+MariaDB [danej]> delimiter ;
+MariaDB [danej]> insert into Posts values
+    -> "TESTING THE ONLINE FORUM",
+    -> "danej",
+    -> "I CAN WRITE A POST");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"TESTING THE ONLINE FORUM",
+"danej",
+"I CAN WRITE A POST")' at line 2
+MariaDB [danej]> insert into Posts values("TESTING THE ONLINE FORUM", "danej", "I CAN WRITE A POST");
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+MariaDB [danej]> insert into Posts(Topic,Created_By,Contents) values("TESTING THE ONLINE FORUM", "danej", "I CAN WRITE A POST");
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [danej]> select * from Posts;
++----------+--------------------------+------------+--------------------+
+| Post_Num | Topic                    | Created_By | Contents           |
++----------+--------------------------+------------+--------------------+
+|        1 | TESTING THE ONLINE FORUM | danej      | I CAN WRITE A POST |
++----------+--------------------------+------------+--------------------+
+1 row in set (0.00 sec)
+
+MariaDB [danej]> select * from Topics;
++--------------------------+-------------+
+| title                    | num_replies |
++--------------------------+-------------+
+| TESTING THE ONLINE FORUM |           1 |
++--------------------------+-------------+
+1 row in set (0.00 sec)
+
+MariaDB [danej]> create procedure addPost(top varchar(100), created varchar(20), content varchar(100))
+    -> begin
+    -> insert into Post(Topic, Created_By, Contents) values(top,created,content);\c
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 3
+MariaDB [danej]> delimiter //
+MariaDB [danej]> create procedure addPost(top varchar(100), created varchar(20), content varchar(100))
+    -> begin
+    -> insert into Post(Topic, Created_By, Contents) values(top,created,content);
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [danej]> call addPost("TESTING THE ONLINE FORUM", "danej", "I HAVE THE SECOND POST");
+    -> //
+ERROR 1146 (42S02): Table 'danej.Post' doesn't exist
+MariaDB [danej]> create procedure addPost(top varchar(100), created varchar(20), content varchar(100))
+    -> begin
+    -> insert into Posts(Topic, Created_By, Contents) values(top,created,content);
+    -> end//
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [danej]> call addPost("TESTING THE ONLINE FORUM", "danej", "I HAVE THE SECOND POST");//
+Query OK, 1 row affected (0.00 sec)
+
+MariaDB [danej]> select * from Topics;
+    -> //
++--------------------------+-------------+
+| title                    | num_replies |
++--------------------------+-------------+
+| TESTING THE ONLINE FORUM |           2 |
++--------------------------+-------------+
+1 row in set (0.00 sec)
+
+MariaDB [danej]> select * from Posts//
++----------+--------------------------+------------+------------------------+
+| Post_Num | Topic                    | Created_By | Contents               |
++----------+--------------------------+------------+------------------------+
+|        1 | TESTING THE ONLINE FORUM | danej      | I CAN WRITE A POST     |
+|        2 | TESTING THE ONLINE FORUM | danej      | I HAVE THE SECOND POST |
++----------+--------------------------+------------+------------------------+
+2 rows in set (0.00 sec)
+
+MariaDB [danej]> grant all privileges on danej.* to 'cs3425gr'@'%' with grant option;
+    -> //
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [danej]> select * from Posts
+    -> //
++----------+--------------------------+------------+------------------------+
+| Post_Num | Topic                    | Created_By | Contents               |
++----------+--------------------------+------------+------------------------+
+|        1 | TESTING THE ONLINE FORUM | danej      | I CAN WRITE A POST     |
+|        2 | TESTING THE ONLINE FORUM | danej      | I HAVE THE SECOND POST |
+|        3 | TESTING THE ONLINE FORUM | danej      | I think this works     |
++----------+--------------------------+------------+------------------------+
+3 rows in set (0.00 sec)
+
+MariaDB [danej]> alter table Topics add attribute(Created_By varchar(20) references User(username))//
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '(Created_By varchar(20) references User(username))' at line 1
+MariaDB [danej]> ALTER TABLE `Topics` ADD `Created_By` VARCHAR(20) references User(username) AFTER `title`
+    -> //
+Query OK, 1 row affected (0.01 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+MariaDB [danej]> select * from Topics//
++--------------------------+------------+-------------+
+| title                    | Created_By | num_replies |
++--------------------------+------------+-------------+
+| TESTING THE ONLINE FORUM | NULL       |           4 |
++--------------------------+------------+-------------+
+1 row in set (0.01 sec)
+
+MariaDB [danej]> update Topics
+    -> set Created_by = 'danej'//
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [danej]> set Created_by = 'danej'//
+ERROR 1193 (HY000): Unknown system variable 'Created_by'
+MariaDB [danej]> select * from Topics//
++--------------------------+------------+-------------+
+| title                    | Created_By | num_replies |
++--------------------------+------------+-------------+
+| TESTING THE ONLINE FORUM | danej      |           4 |
++--------------------------+------------+-------------+
+1 row in set (0.01 sec)
+
+MariaDB [danej]> grant all privileges on danej.* to 'cs3425gr'@'%' with grant option;
+    -> //
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [danej]> 
