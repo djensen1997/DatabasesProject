@@ -3,7 +3,7 @@
 <?php
 $exam;
 $points;
-ifset($_POST['exam_name']){
+if(isset($_POST['exam_name'])){
 	//cookie only lasts 30 minutes
 	setcookie('exam', $_POST['exam_name'], time() + (86400/48), "/");
 	$exam = $_POST['exam_name'];
