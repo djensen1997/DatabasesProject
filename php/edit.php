@@ -54,7 +54,7 @@
 			}
 			echo '</table>';
 			
-			echo '<form action="/teacherportal.php">';
+			echo '<form action="teacherportal.php">';
 				echo '<input type="submit" name="submit" value="Back" /> </br>';
 			echo '</form>';
 		echo '</form>';
