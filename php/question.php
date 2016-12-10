@@ -12,7 +12,7 @@ try {
 
 	echo '<form method="post" action="gradeQuestion.php">';
 
-	foreach ($dbh->query('Select number, question, choiceA, choiceB, choiceC, choiceD, correctAnswer from Question where eName = "'.$eName.'" and number='.$number) as $query) {
+	foreach ($dbh->query('Select number, question, choiceA, choiceB, choiceC, choiceD, correctAnswer, point from Question where eName = "'.$eName.'" and number='.$number) as $query) {
 		echo "<p>".$query[0].".) ".$query[1]."</p>";
 		echo "</br>";
 		echo '<input type="radio" name="choice" value="A" checked>'.$query[2]."</br>";
@@ -24,6 +24,7 @@ try {
 		echo '<input type="hidden" name="sId" value="'.$sId.'">';
 		echo '<input type="hidden" name="eName" value="'.$eName.'">';
 		echo '<input type="hidden" name="number" value="'.$number.'">';
+		echo '<input type="hidden" name="points" value="'.$query[7].'">';
 		echo '<input type="submit" name="nextQuestion" value="Next Queston">';
 
 
