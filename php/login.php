@@ -31,19 +31,19 @@
 
 		#if the student's login info is correct
 		if($reconized == 2){
-			session_start();
-			$_SESSION['username'] = $_POST['username'];
-			$_SESSION['roll'] = 'student';
+			$name = 'user';
+			setcookie($name, $_POST['username'], time() + (86400 * 30), "../");
+			setcookie('roll', 'student', time() + (86400*30), "../");
 
-			header('Location: userportal.php?username='.$_POST['username']);
+			header('Location: userportal.php?');
 		}
 
 		#if the teacher's login info is correct
 		if($reconized == 3){
-			session_start();
-			$_SESSION['username'] = $_POST['username'];
-			$_SESSION['roll'] = 'teacher';
-			header('Location: teacherportal.php?username='.$_POST['username']);
+			$name = 'user';
+			setcookie($name, $_POST['username'], time() + (86400 * 30), "../");
+			setcookie('roll', 'teacher', time() + (86400*30), "../");
+			header('Location: teacherportal.php?username=');
 		}
 
 	}catch (PDOException $e){

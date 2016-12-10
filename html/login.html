@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 	<?php
-		ifset($_SESSION['roll']){
-			if($_SESSION['roll'] == 'student'){
+		ifset($_COOKIE['roll']){
+			if($_COOKIE['roll'] == 'student'){
 				header('Location: userportal.php');
-			}else if($_SESSION['roll'] == 'teacher'){
+			}else if($COOKIE['roll'] == 'teacher'){
 				header('Location: teacherportal.php');
 			}
 		}
