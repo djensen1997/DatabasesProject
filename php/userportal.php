@@ -9,10 +9,9 @@
 		#get the exam names
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$exams = $dbh->query("select name, eId from Exam");
+		$exams = $dbh->query("select name from Exam");
 	}catch (PDOException $e){
-		print "ERROR!" . $e->getMessage()."<br/>";
-		header('Location: ../html/userportal.html');
+		print "ERROR!" . $e->getMessage()."<br/>;
 		die();
 	}
 	echo '<body style="background-color:pink;">';
