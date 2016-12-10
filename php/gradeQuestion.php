@@ -21,9 +21,9 @@ try {
 	$maxNumber = mysql_fetch_array($dbh->query('select max(number) from Question where eName = "'.$eName.'"'));
 
 	if ($maxNumber[0]==$number) {
-		echo '<form type="POST" id="form" action="../php/userportal.php">';
+		echo '<form type="POST" name="form" action="../php/userportal.php">';
 	} else {
-		echo '<form type="POST" id="form" action="../php/question.php">';
+		echo '<form type="POST" name="form" action="../php/question.php">';
 	}
 
 	echo '<input type="hidden" name="sId" value ="'.$sId.'">';
