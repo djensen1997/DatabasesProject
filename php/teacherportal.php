@@ -20,7 +20,7 @@
 		echo '</br> </br> </br> </br>'; #spacing
 		#the acutal exam selection
 		echo 'Your Created Exams </br>';
-		echo '<form action="../php/edit.php" method="post">';
+		
 			echo "<table border='1'>";
 			echo "<TR>";
 			echo "<TH> Exam Name </TH>";
@@ -28,19 +28,22 @@
 			echo "<TH> Date Created </TH>";
 			echo "</TR>";
 			foreach($exams as $row){
+				echo '<form action="../php/edit.php" method="post">';
 				echo "<TR>";
 				echo "<TD>".$row[0]."</TD>";
 				echo "<TD>".$row[1]."</TD>";
 				echo "<TD>".$row[2]."</TD>";
-				echo '<TD><input type="submit" name="edit" value="Edit"></TD>';
+				echo '<TD><input type="submit" name="edit" value="Details"></TD>';
 				echo "</TR>";
+				echo "<input type='hidden' name='exam' value='".$row[0]."'>";
+				echo '</form>';
 			}
 			echo '</table>';
-			echo '</form>';
+			
 			echo '<form action "../html/newExam.html">';
 				echo '<input type="submit" name="submit" value="Create New Exam" /> </br>';
 			echo '</form>';
 		echo '</form>';
-		echo '<a href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>';
+		echo '<a href="https://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>';
 	echo '</body>';
 ?>

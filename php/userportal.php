@@ -32,7 +32,7 @@
 			echo '<input type="hidden" name="number" value="1">';
 			echo '<input type="submit" name="submit" value="Take Exam" /> </br>';
 		echo '</form>';
-		echo '<a href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>';
+		echo '<a href="https://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>';
 	echo '</body>';
 ?>
 

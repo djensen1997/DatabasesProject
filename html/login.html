@@ -2,7 +2,7 @@
 
 <html>
 	<?php
-		ifset($_COOKIE['roll']){
+		if(isset($_COOKIE['roll'])){
 			if(strcmp($_COOKIE['roll'] ,'student') == 0){
 				header('Location: ../userportal.php');
 			}else if(strcmp($COOKIE['roll'] == 'teacher') == 0){
