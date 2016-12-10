@@ -1,7 +1,7 @@
 
 <body>
 <?php
-	echo '<form action=<?php AddQuestion() ?>>';
+	echo '<form action="<?php AddQuestion() ?>">';
 	echo '<br/><br/><br/>';
 	echo "<table border='0'>";
 	echo "<TR>";
