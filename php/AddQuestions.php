@@ -12,7 +12,7 @@ if(isset($_POST['exam_name'])){
 	try{
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$dbh->query("insert into Exam values(".$exam.", 0, CURDATE())");
+		$dbh->query("insert into Exam values('".$exam."', 0, CURDATE())");
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
