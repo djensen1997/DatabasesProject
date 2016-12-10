@@ -39,7 +39,7 @@ try {
 
 	echo '</form>';
 
-	echo '<script> window.onload = function(){ document.getElementById("form").submit(); } </script>';
+#	echo '<script> window.onload = function(){ document.getElementById("form").submit(); } </script>';
 } catch (PDOException $e) {
 	print "Error! " . $e->getMessage()."<br";
 	die();
