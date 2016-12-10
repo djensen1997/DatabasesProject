@@ -20,6 +20,7 @@ try {
 	}
 
 	$maxNumber = mysql_fetch_array($dbh->query('select max(number) from Question where eName = "'.$eName.'"'));
+	echo '<p>'.$maxNumber.'</p>';
 
 	if ($maxNumber[0]-$number == 0) {
 		$totalScore = mysql_fetch_array($dbh->query('select sum(points) from qGrade where eName="'.$eName.'" and correct=1'))[0];
