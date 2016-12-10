@@ -41,7 +41,7 @@
 			echo "<TR>";
 			echo "<TD>Answer 1: </TD>";
 			echo "<TD><input type='text' name='a1' maxlength='255' value='".$choicea."'></TD>";
-			echo "<TD><input type='radio' name='correct' value='A' "
+			echo "<TD><input type='radio' name='correct' value='A' ";
 			if(strcmp($corret,'A') == 0){
 				echo 'checked="checked">';
 			}else{
