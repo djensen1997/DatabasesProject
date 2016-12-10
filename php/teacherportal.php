@@ -40,7 +40,7 @@
 			}
 			echo '</table>';
 			
-			echo '<form action "../html/newExam.html">';
+			echo '<form action="../html/newExam.html">';
 				echo '<input type="submit" name="submit" value="Create New Exam" /> </br>';
 			echo '</form>';
 		echo '</form>';
