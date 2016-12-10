@@ -23,8 +23,8 @@ try {
 	echo '<p>'.$maxNumber.'</p>';
 
 	if ($maxNumber[0]-$number == 0) {
-		$totalScore = mysql_fetch_array($dbh->query('select sum(points) from qGrade where eName="'.$eName.'" and correct=1'))[0];
-		$totalPoint = mysql_fetch_array($dbh->query('select sum(points) from qGrade where eName="'.$eName.'"'))[0];
+		$totalScore = $dbh->query('select sum(points) from qGrade where eName="'.$eName.'" and correct=1')->fetch()['sum(points)'];
+		$totalPoint = $dbh->query('select sum(points) from qGrade where eName="'.$eName.'"')->fetch()['sum(points)'];
 		$dbh->query('insert into eGrade values("'.$eName.'",'.$totalPoint.','.$totalScore.','.$sId.')');
 		echo '<form method="POST" id="form" action="../php/userportal.php">';
 	} else {
@@ -39,7 +39,7 @@ try {
 
 	echo '</form>';
 
-#	echo '<script> window.onload = function(){ document.getElementById("form").submit(); } </script>';
+	echo '<script> window.onload = function(){ document.getElementById("form").submit(); } </script>';
 } catch (PDOException $e) {
 	print "Error! " . $e->getMessage()."<br";
 	die();
