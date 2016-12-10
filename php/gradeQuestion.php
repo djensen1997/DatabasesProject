@@ -20,16 +20,21 @@ try {
 
 	$maxNumber = mysql_fetch_array($dbh->query('select max(number) from Question where eName = "'.$eName.'"'));
 
+	if ($maxNumber[0]==$number) {
+		echo '<form type="POST" id="form" action="../php/userportal.php">';
+	} else {
+		echo '<form type="POST" id="form" action="../php/question.php">';
+	}
+
 	echo '<input type="hidden" name="sId" value ="'.$sId.'">';
 	echo '<input type="hidden" name="eName" value ="'.$eName.'">';
 	echo '<input type="hidden" name="number" value ="'.$number.'">';
 
-	if ($maxNumber[0]==$number) {
-		header('Location: ../php/userportal.php');
-	} else {
-		header('Location: ../php/question.php');	
-	}
+	echo '<input type="submit">';
 
+	echo '</form>';
+
+	echo '<script> window.onload = function(){ document.getElementById["form"].submit(); } </script>';
 } catch (PDOException $e) {
 	print "Error! " . $e->getMessage()."<br";
 	die();
