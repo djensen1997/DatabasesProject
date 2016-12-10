@@ -34,7 +34,7 @@
 			echo "<TH> Correct Choice </TH>";//5
 			echo "<TH> Worth </TH>";//7
 			echo "</TR>";
-			foreach($exams as $row){
+			foreach($questions as $row){
 				echo '<form action="../php/editquestion.php" method="post">';
 				echo "<TR>";
 				echo "<TD>".$row[6]."</TD>";
