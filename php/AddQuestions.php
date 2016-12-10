@@ -34,7 +34,7 @@ if(isset($_POST['exam_name']) && !isset($_POST['points'])){
 }
 if(isset($_POST['points'])){
 	$points = $_POST['points'];
-	setcookie('num', $_POST['num'], time() + (86400/48), "/");
+	setcookie('num', $_POST['num'] + 1, time() + (86400/48), "/");
 }
 	echo '<html><br/><body>';
 	echo '<h1>Currently Adding Questions for Exam: '.$exam;
