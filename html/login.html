@@ -1,15 +1,16 @@
 <!DOCTYPE HTML>
-<html>
-	<?php
+<?php
 		ifset($_COOKIE['roll']){
-			if($_COOKIE['roll'] == 'student'){
+			if(strcmp($_COOKIE['roll'] ,'student') == 0){
 				header('Location: ../userportal.php');
-			}else if($COOKIE['roll'] == 'teacher'){
+			}else if(strcmp($COOKIE['roll'] == 'teacher') == 0){
 				header('Location: ../teacherportal.php');
 			}
 		}
 
 	?>
+<html>
+	
 	<html lang="en-US">
 	<head>
 		<meta charset="UTF-8">
