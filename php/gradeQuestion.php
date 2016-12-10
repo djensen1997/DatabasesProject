@@ -12,7 +12,7 @@ try {
 	$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore',"cs3425gr", "cs3425gr");
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	if (strcmp($answer,$correct)) {
+	if (strcmp($answer,$correct) == 0) {
 		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',1)');
 	} else {
 		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',0)');
@@ -20,7 +20,7 @@ try {
 
 	$maxNumber = mysql_fetch_array($dbh->query('select max(number) from Question where eName = "'.$eName.'"'));
 
-	if (strcmp($maxNumber[0],$number)) {
+	if (strcmp($maxNumber[0],$number) == 0) {
 		echo '<form method="POST" id="form" action="../php/userportal.php">';
 	} else {
 		echo '<form method="POST" id="form" action="../php/question.php">';
