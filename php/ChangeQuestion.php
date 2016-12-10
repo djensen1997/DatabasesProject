@@ -24,10 +24,10 @@
 				$dbh->query("update Question set choiceD='".$_POST['a4']."' where eName='".$exam."' and number=".$num);
 			}
 			if(strcmp($row[6], $_POST['correct']) != 0){
-				$dbh->query("update Question set correctAnswer='".$_POST['qname']."' where eName='".$exam."' and number=".$num);
+				$dbh->query("update Question set correctAnswer='".$_POST['correct']."' where eName='".$exam."' and number=".$num);
 			}
 			if(strcmp($row[7], $_POST['points']) != 0){
-				$dbh->query("update Question set point='".$_POST['qname']."' where eName='".$exam."' and number=".$num);
+				$dbh->query("update Question set point='".$_POST['points']."' where eName='".$exam."' and number=".$num);
 			}
 		}
 	}catch (PDOException $e){
