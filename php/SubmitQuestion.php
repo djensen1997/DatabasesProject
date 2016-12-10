@@ -8,7 +8,7 @@
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$dbh->query("insert into Question values('".$_POST['qname']."', '".$_POST['a1']."', '".$_POST['a2']
 			."', '".$_POST['a3']."', '".$_POST['a4']."', ".$num.", '".$_POST['correct']."', ".$_POST['points'].", '".$exam."')");
-		$dbh->query("update table Exam set points = points + ".$_POST['points']." where name = '".$exam."'");
+		$dbh->query("update Exam set points = points + ".$_POST['points']." where name = '".$exam."'");
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
