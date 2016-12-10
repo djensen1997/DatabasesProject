@@ -16,7 +16,7 @@ try {
 	if (strcmp($answer,$correct) == 0) {
 		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',1,'.$points.')');
 	} else {
-		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',0)'.$points.')');
+		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',0,'.$points.')');
 	}
 
 	$maxNumber = mysql_fetch_array($dbh->query('select max(number) from Question where eName = "'.$eName.'"'));
