@@ -31,11 +31,18 @@
 
 		#if the student's login info is correct
 		if($reconized == 2){
+			session_start();
+			$_SESSION['username'] = $_POST['username'];
+			$_SESSION['roll'] = 'student';
+
 			header('Location: userportal.php?username='.$_POST['username']);
 		}
 
 		#if the teacher's login info is correct
 		if($reconized == 3){
+			session_start();
+			$_SESSION['username'] = $_POST['username'];
+			$_SESSION['roll'] = 'teacher';
 			header('Location: teacherportal.php?username='.$_POST['username']);
 		}
 

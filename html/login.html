@@ -1,5 +1,15 @@
 <!DOCTYPE HTML>
 <html>
+	<?php
+		ifset($_SESSION['roll']){
+			if($_SESSION['roll'] == 'student'){
+				header('Location: userportal.php');
+			}else if($_SESSION['roll'] == 'teacher'){
+				header('Location: teacherportal.php');
+			}
+		}
+
+	?>
 	<html lang="en-US">
 	<head>
 		<meta charset="UTF-8">

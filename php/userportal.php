@@ -5,18 +5,19 @@
 
 <?php
 	$exams; #holds all the exam names
+	$username = $_SESSION['username'];
 	try{
 		#get the exam names
+
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$exams = $dbh->query("select name from Exam");
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
-		header('Location: ../html/userportal.html');
 		die();
 	}
 	echo '<body style="background-color:pink;">';
-		echo '<strong> Welcome Back '.$_GET['username'].'</strong>'; #nice welcome
+		echo '<strong> Welcome Back '.$username.'</strong>'; #nice welcome
 		echo '</br> </br> </br> </br>'; #spacing
 		#the acutal exam selection
 		echo 'Select an exam to take </br>';
@@ -27,7 +28,7 @@
 					echo '<option>'.$exam[0].'</option>';
 				}
 			echo '</select>';
-			echo '<input type="hidden" name="sId" value="'.$_GET['username'].'">';
+			echo '<input type="hidden" name="sId" value="'.$username.'">';
 			echo '<input type="submit" name="submit" value="Take Exam" /> </br>';
 		echo '</form>';
 		echo '<a href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>';

@@ -4,19 +4,19 @@
 </head>
 
 <?php
+	$username = $_SESSION['username'];
 	$exams; #holds all the exam names
 	try{
 		#get the exam names
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$exams = $dbh->query("select eid,name,points,cDate from Exam");
+		$exams = $dbh->query("select name,points,cDate from Exam");
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
-		header('Location: ../html/userportal.html');
 		die();
 	}
 	echo '<body style="background-color:pink;">';
-		echo '<strong> Welcome Back '.$_GET['username'].'</strong>'; #nice welcome
+		echo '<strong> Welcome Back '.$username.'</strong>'; #nice welcome
 		echo '</br> </br> </br> </br>'; #spacing
 		#the acutal exam selection
 		echo 'Your Created Exams </br>';
