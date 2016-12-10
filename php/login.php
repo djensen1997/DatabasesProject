@@ -35,7 +35,7 @@
 			setcookie($name, $_POST['username'], time() + (86400 * 30), "../");
 			setcookie('roll', 'student', time() + (86400*30), "../");
 
-			header('Location: userportal.php?');
+			header('Location: userportal.php');
 		}
 
 		#if the teacher's login info is correct
@@ -43,7 +43,7 @@
 			$name = 'user';
 			setcookie($name, $_POST['username'], time() + (86400 * 30), "../");
 			setcookie('roll', 'teacher', time() + (86400*30), "../");
-			header('Location: teacherportal.php?username=');
+			header('Location: teacherportal.php');
 		}
 
 	}catch (PDOException $e){
