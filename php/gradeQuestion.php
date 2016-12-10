@@ -18,7 +18,7 @@ try {
 		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',false)');
 	}
 
-	$maxNumber = $dbh->query('select max(number) from Qustion where eName = "'.$eName);
+	$maxNumber = $dbh->query('select max(number) from Qustion where eName = "'.$eName.'"');
 
 	echo '<input type="hidden" name="sId" value ="'.$sId.'">';
 	echo '<input type="hidden" name="eName" value ="'.$eName.'">';
