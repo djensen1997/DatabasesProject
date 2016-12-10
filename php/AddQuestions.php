@@ -33,7 +33,7 @@ if(isset($_POST['exam_name'])){
 	}
 }
 	echo '<html><br/><body>';
-	echo '<h1>Currently Adding Questions for Exam'.$exam;
+	echo '<h1>Currently Adding Questions for Exam: '.$exam;
 	echo '<form action="SubmitQuestion.php">';
 	echo '<br/><br/><br/>';
 	echo "<table border='0'>";
