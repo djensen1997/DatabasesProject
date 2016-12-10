@@ -20,9 +20,9 @@ try {
 
 	$maxNumber = $dbh->query('select max(number) from Qustion where eName = "'.$eName);
 
-	echo '<input type="hidden" name="sId" value ='.$sId'>';
-	echo '<input type="hidden" name="eName" value ="'.$eName'">';
-	echo '<input type="hidden" name="number" value ='.$number'>';
+	echo '<input type="hidden" name="sId" value ="'.$sId.'">';
+	echo '<input type="hidden" name="eName" value ="'.$eName.'">';
+	echo '<input type="hidden" name="number" value ="'.$number.'">';
 
 	if ($maxNumber[0]==$number) {
 		header('Location: ../php/userportal.php');
