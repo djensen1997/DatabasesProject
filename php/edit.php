@@ -37,19 +37,19 @@
 			foreach($questions as $row){
 				echo '<form action="../php/editquestion.php" method="post">';
 				echo "<TR>";
-				echo "<TD>".$row[7]."</TD>";
+				echo "<TD>".$row[5]."</TD>";
 				echo "<TD>".$row[0]."</TD>";
 				echo "<TD>".$row[1]."</TD>";
 				echo "<TD>".$row[2]."</TD>";
 				echo "<TD>".$row[3]."</TD>";
 				echo "<TD>".$row[4]."</TD>";
-				echo "<TD>".$row[5]."</TD>";
 				echo "<TD>".$row[6]."</TD>";
+				echo "<TD>".$row[7]."</TD>";
 				echo '<TD><input type="submit" name="edit" value="Edit"></TD>';
 				echo '<TD><input type="submit" name="delete" value="Delete"></TD>';
 				echo "</TR>";
 				echo "<input type='hidden' name='exam' value='".$exam."'>";
-				echo "<input type='hidden' name='number' value='".$row[6]."'>";
+				echo "<input type='hidden' name='number' value='".$row[5]."'>";
 				echo '</form>';
 			}
 			echo '</table>';
