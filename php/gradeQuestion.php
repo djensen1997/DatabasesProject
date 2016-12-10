@@ -21,7 +21,7 @@ try {
 
 	$maxNumber = mysql_fetch_array($dbh->query('select max(number) from Question where eName = "'.$eName.'"'));
 
-	if (strcmp($maxNumber[0],$number) == 0) {
+	if ($maxNumber[0]-$number == 0) {
 		$totalScore = mysql_fetch_array($dbh->query('select sum(points) from qGrade where eName="'.$eName.'" and correct=1'))[0];
 		$totalPoint = mysql_fetch_array($dbh->query('select sum(points) from qGrade where eName="'.$eName.'"'))[0];
 		$dbh->query('insert into eGrade values("'.$eName.'",'.$totalPoint.','.$totalScore.','.$sId.')');
