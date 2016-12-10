@@ -19,7 +19,7 @@ try {
 		$dbh->query('insert into qGrade values('.$sId.',"'.$eName.'",'.$number.',0,'.$points.')');
 	}
 
-	$maxNumber = $dbh->query('select max(number) from Question where eName = "'.$eName.'"');
+	$maxNumber = $dbh->query('select max(number) from Question where eName = "'.$eName.'"')[0];
 	echo '<p>'.$maxNumber.'</p>';
 
 	if ($maxNumber[0]-$number == 0) {
