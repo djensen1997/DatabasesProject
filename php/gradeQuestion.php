@@ -30,7 +30,7 @@ try {
 		header('Location: ../php/question.php');	
 	}
 
-} catch (PDO Exception $e) {
+} catch (PDOException $e) {
 	print "Error! " . $e.->getMessage()."<br";
 	die();
 }
