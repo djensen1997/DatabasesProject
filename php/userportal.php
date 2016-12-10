@@ -20,13 +20,14 @@
 		echo '</br> </br> </br> </br>'; #spacing
 		#the acutal exam selection
 		echo 'Select an exam to take </br>';
-		echo '<form action="../php/exam.php" method="post">';
+		echo '<form action="../php/question.php" method="post">';
 			echo 'Exam: <select name="exam">';
 				#adds each exam name as an option
 				foreach($exams as $exam){
 					echo '<option>'.$exam[0].'</option>';
 				}
 			echo '</select>';
+			echo '<input type="hidden" name="sId" value="'.$_GET['username'].'">';
 			echo '<input type="submit" name="submit" value="Take Exam" /> </br>';
 		echo '</form>';
 		echo '<a href="http://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>';
