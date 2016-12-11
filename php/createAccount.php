@@ -19,6 +19,6 @@
 			print "ERROR!" . $e->getMessage()."<br/>";
 			header('Location: newUser.html');
 		}
-		header('Location: forum.php?username='.$_POST['username']);
+		header('Location: teacherportal.php');
 
 ?>
