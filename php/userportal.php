@@ -12,7 +12,7 @@
 
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$exams = $dbh->query("select name from Exam");
+		$exams = $dbh->query("select name from Exam where name not in(select eName from eGrade where sId=".$username);
 		$gradedExams = $dbh->query("select eName from eGrade where sId =".$username);
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
@@ -25,20 +25,10 @@
 		echo 'Select an exam to take </br>';
 		echo '<form action="../php/question.php" method="post">';
 			echo 'Exam: <select name="eName">';
-				#adds each exam name as an option
-				foreach($exams as $exam){
-					$cont = 0;
-					foreach($gradedExams as $gExam) {
-						echo '<p>'.$gExam[0]." ".$exam[0].'</p>';
-						if(strcmp($gExam[0],$exam[0])==0) {
-							$cont = 1;
-							break;
-						}
-					}
-					if ($cont == 0) {
-						echo '<option>'.$exam[0].'</option>';
-					}
-				}
+			#adds each exam name as an option
+			foreach($exams as $exam){
+				echo '<option>'.$exam[0].'</option>';	
+			}
 			echo '</select>';
 			echo '<input type="hidden" name="sId" value="'.$username.'">';
 			echo '<input type="hidden" name="number" value="1">';
