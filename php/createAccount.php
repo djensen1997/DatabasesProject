@@ -6,12 +6,12 @@
 			#call the add post procedure
 			if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confirm'])){
 				if(strcmp($_POST['password'], $_POST['confirm']) == 0){
-					$dbh->query('insert into Student values("'.$_POST['sid'].'", "'.$_POST['password'].'")');
+					$dbh->query('insert into Student values("'.$_POST['sid'].'", "'.$_POST["name"].'", "'.$_POST['major'].'" ,"'.$_POST['password'].'")');
 				}else{
 					header('Location: newUser.html?msg='.urldecode("Passwords do not match"));
 				}
 			}else{
-				header('Location: newUser.html');
+				header('Location: ../html/newUser.html?msg='.urldecode("A field is blank"));
 			}
 			
 			
