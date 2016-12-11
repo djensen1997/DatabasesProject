@@ -43,7 +43,7 @@
 			echo '<form action="../html/newExam.html">';
 				echo '<input type="submit" name="submit" value="Create New Exam" /> </br>';
 			echo '</form>';
-			echo '<form action="../html/newStudent.html">';
+			echo '<form action="../html/newUser.html">';
 				echo '<input type="submit" name="student" value="Create New Student" /> </br>';
 			echo '</form>';
 		echo '</form>';
