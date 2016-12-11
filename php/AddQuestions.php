@@ -19,6 +19,7 @@ if(isset($_POST['exam_name']) && !isset($_POST['points'])){
 	}
 }else{
 	if(isset($_POST['exam_name'])){
+		$exam = $_POST['exam_name'];
 		setcookie('exam', $_POST['exam_name'], time() + (86400/48), "/");
 	}else{
 		$exam = $_COOKIE['exam'];
