@@ -7,8 +7,9 @@
 			if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confirm'])){
 				if(strcmp($_POST['password'], $_POST['confirm']) == 0){
 					$dbh->query('insert into Student values("'.$_POST['sid'].'", "'.$_POST["name"].'", "'.$_POST['major'].'" ,"'.$_POST['password'].'")');
+					header('Location: teacherportal.php');
 				}else{
-					header('Location: newUser.html?msg='.urldecode("Passwords do not match"));
+					header('Location: ../html/newUser.html?msg='.urldecode("Passwords do not match"));
 				}
 			}else{
 				header('Location: ../html/newUser.html?msg='.urldecode("A field is blank"));
@@ -17,8 +18,8 @@
 			
 		}catch (PDOException $e){
 			print "ERROR!" . $e->getMessage()."<br/>";
-			header('Location: newUser.html');
+			header('Location: ../html/newUser.html');
 		}
-		header('Location: teacherportal.php');
+		
 
 ?>
