@@ -32,7 +32,6 @@
 						echo '<p>'.$gExam[0]." ".$exam[0].'</p>';
 						if(strcmp($gExam[0],$exam[0])==0) {
 							$cont = 1;
-							break;
 						}
 					}
 					if ($cont == 0) {
