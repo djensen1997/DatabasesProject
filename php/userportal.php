@@ -5,7 +5,6 @@
 
 <?php
 	$exams; #holds all the exam names
-	$gradedExams; #holds all the graded exam names
 	$username = $_COOKIE['user'];
 	try{
 		#get the exam names
@@ -13,7 +12,6 @@
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$exams = $dbh->query("select name from Exam where name not in(select eName from eGrade where sId=".$username);
-		$gradedExams = $dbh->query("select eName from eGrade where sId =".$username);
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
