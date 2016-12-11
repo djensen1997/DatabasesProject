@@ -33,6 +33,7 @@ if(isset($_POST['exam_name']) && !isset($_POST['points'])){
 	}
 }
 if(isset($_POST['points'])){
+	setcookie('exam', $_POST['exam_name'], time() + (86400/48), "/")
 	$points = $_POST['points'];
 	setcookie('num', $_POST['num'] + 1, time() + (86400/48), "/");
 }
