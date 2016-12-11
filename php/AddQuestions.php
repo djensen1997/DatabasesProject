@@ -18,7 +18,12 @@ if(isset($_POST['exam_name']) && !isset($_POST['points'])){
 		die();
 	}
 }else{
-	$exam = $_COOKIE['exam'];
+	if(isset($_POST['exam_name'])){
+		setcookie('exam', $_POST['exam_name'], time() + (86400/48), "/");
+	}else{
+		$exam = $_COOKIE['exam'];
+	}
+	
 	try{
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -33,7 +38,6 @@ if(isset($_POST['exam_name']) && !isset($_POST['points'])){
 	}
 }
 if(isset($_POST['points'])){
-	setcookie('exam', $_POST['exam_name'], time() + (86400/48), "/");
 	$points = $_POST['points'];
 	setcookie('num', $_POST['num'] + 1, time() + (86400/48), "/");
 }
