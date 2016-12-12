@@ -2,7 +2,7 @@
 </head>
 
 <?php
-	$sId = $_POST['sid'];
+	$sId = $_POST['sId'];
 	$eName = $_POST['eName'];
 	$questions;
 	try {
