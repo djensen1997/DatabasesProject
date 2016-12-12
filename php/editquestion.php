@@ -38,7 +38,7 @@
 			foreach($dbh->query("select * from Answer where eName='".$_POST['exam']."' and number=".$num) as $ans){
 				echo "<TR>";
 				echo '<TD>Answer '.$char.':</TD>';
-				echo '<TD><input type="text" name="a'.$i.'" value='.$ans[3].' maxlength="20"></TD>';
+				echo '<TD><input type="text" name="a'.$i.'" value='.$ans[3].' maxlength="255"></TD>';
 				echo '<TD><input type="radio" name="correct" value='.$char.' ';
 				if(strcmp($correct, $char) == 0){
 					echo 'checked="checked"';
@@ -90,7 +90,7 @@
 		var cell2 = row.insertCell(col++);
 		var cell3 = row.insertCell(col++);
 		cell1.innerHTML = "Answer " + letter + ":";
-		cell2.innerHTML = "<input type='text' name = 'a" + (rowN) + "' maxlength='20'>";
+		cell2.innerHTML = "<input type='text' name = 'a" + (rowN) + "' maxlength='255'>";
 		cell3.innerHTML = "<input type='radio' name='correct' value='"+ letter + "' />";
 	}
 </script>

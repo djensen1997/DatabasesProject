@@ -56,12 +56,12 @@ if(isset($_POST['points'])){
 	echo "</TR>";
 	echo "<TR>";
 	echo "<TD>Answer A: </TD>";
-	echo "<TD><input type='text' name='a1' maxlength='20'></TD>";
+	echo "<TD><input type='text' name='a1' maxlength='255'></TD>";
 	echo "<TD><input type='radio' name='correct' value='A' /></TD>";
 	echo "</TR>";
 	echo "<TR>";
 	echo "<TD>Answer B: </TD>";
-	echo "<TD><input type='text' name='a2' maxlength='20'></TD>";
+	echo "<TD><input type='text' name='a2' maxlength='255'></TD>";
 	echo "<TD><input type='radio' name='correct' value='B' /></TD>";
 	echo "</TR>";
 	echo "<TR>";
@@ -92,7 +92,7 @@ if(isset($_POST['points'])){
 		var cell2 = row.insertCell(col++);
 		var cell3 = row.insertCell(col++);
 		cell1.innerHTML = "Answer " + letter + ":";
-		cell2.innerHTML = "<input type='text' name = 'a" + (rowN) + "' maxlength='20'>";
+		cell2.innerHTML = "<input type='text' name = 'a" + (rowN) + "' maxlength='255'>";
 		cell3.innerHTML = "<input type='radio' name='correct' value='"+ letter + "' />";
 	}
 </script>
