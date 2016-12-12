@@ -12,14 +12,14 @@
 		$i = 1;
 		$char = 'A';
 		echo "<script> Console.log(".$_POST['a1']."); </script>";
-		$index = 'a'.i;
+		$index = 'a'.$i;
 		while(isset($_POST[$index])){
-			echo "<script> Console.log(".$_POST['a'.i]."); </script>";
+			echo "<script> Console.log(".$_POST['a'.$i]."); </script>";
 			//Answer(qnum, ename, choice, value)
-			$dbh->query("insert into Answer values(".$num.", '".$exam."', '".$char."', '".$_POST['a'.i]."')");
+			$dbh->query("insert into Answer values(".$num.", '".$exam."', '".$char."', '".$_POST['a'.$i]."')");
 			$char++;
 			$i++;
-			$index = 'a'.i;
+			$index = 'a'.$i;
 		}
 		$dbh->query("update Exam set points = points + ".$_POST['points']." where name = '".$exam."'");
 	}catch (PDOException $e){
@@ -32,9 +32,9 @@
 	if(isset($_POST['Finish'])){
 		unset($_COOKIE['exam']);
 		unset($_COOKIE['num']);
-//		header('Location: teacherportal.php');
+		header('Location: teacherportal.php');
 	}else{
-//		header('Location: AddQuestions.php');
+		header('Location: AddQuestions.php');
 	}
 
 ?>
