@@ -11,11 +11,13 @@
 			$_POST['points'].", '".$_POST['correct']."')");
 		$i = 1;
 		$char = 'A';
-		while(isset($_POST['a'.i])){
+		$index = 'a'.i;
+		while(isset($_POST[$index])){
 			//Answer(qnum, ename, choice, value)
 			$dbh->query("insert into Answer values(".$num.", '".$exam."', '".$char."', '".$_POST['a'.i]."')");
 			$char++;
 			$i++;
+			$index = 'a'.i
 		}
 		$dbh->query("update Exam set points = points + ".$_POST['points']." where name = '".$exam."'");
 	}catch (PDOException $e){
