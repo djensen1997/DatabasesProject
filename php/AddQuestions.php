@@ -90,7 +90,7 @@ if(isset($_POST['points'])){
 	var row = 4;
 	var letter = 'D';
 	function addRow(){
-		var table = document.getElementByID('qtable');
+		var table = document.getElementById('qtable');
 		var row = table.insertRow(row);
 		var col = 0;
 		var cell1 = row.insertCell(col++);
