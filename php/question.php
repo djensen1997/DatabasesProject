@@ -23,7 +23,7 @@ try {
 	echo '<input type="hidden" name="points" value="'.$question[3].'">';
 	echo '<input type="submit" name="nextQuestion" value="NextQuestion">';
 
-
+	echo '</br>';
 	foreach ($dbh->query('Select choice, value from Question natural join Answer where ename = "'.$eName.'" and number='.$number) as $query) {
 		echo '<input type="radio" name="choice" value="'.$query[0].'">'.$query[1]."</br>";	
 	}
