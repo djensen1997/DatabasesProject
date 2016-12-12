@@ -24,7 +24,7 @@
 			echo '<form action="ChangeQuestion.php" method="post">';
 			echo $_POST['exam'];
 			$exam = $_POST['exam'];
-			echo '<input type="hidden" name="exam" value='.$exam.'>';
+			echo '<input type="hidden" name="exam" value="'.$exam.'">';
 			echo '<input type="hidden" name="number" value='.$_POST['number'].'>';
 			echo '<br/><br/><br/>';
 			echo "<table border='0' id='qtable'>";
