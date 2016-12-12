@@ -50,7 +50,7 @@
 			echo '<TD></TD>';
 			echo "</TR>";
 			echo "<TR>";
-			echo "<TD>Points: <input type='text' name='points' value='".$point."''></TD>";
+			echo "<TD>Points:</TD><TD> <input type='text' name='points' value='".$point."''></TD>";
 			echo "<TD><input type='submit' name='edit' value='Submit Changes'></TD>";
 			echo "</TR>";
 			echo "</form>";
