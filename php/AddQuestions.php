@@ -48,10 +48,10 @@ if(isset($_POST['points'])){
 	echo '<h1>Currently Adding Questions for Exam: '.$exam;
 	echo '<form action="SubmitQuestion.php" method="post">';
 	echo '<br/><br/><br/>';
-	echo "<table border='0'>";
+	echo "<table border='0' id='qtable'>";
 	echo "<TR>";
 	echo "<TD>Question: </TD>";
-	echo "<TD><input type='text' name='qname' maxlength='255' id='qtable'></TD>";
+	echo "<TD><input type='text' name='qname' maxlength='255' ></TD>";
 	echo "<TD>Select the Correct Answer</TD>";
 	echo "</TR>";
 	echo "<TR>";
