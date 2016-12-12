@@ -41,6 +41,10 @@
 
 		foreach ( $dbh->query("select eName, grade, points from eGrade where sId =".$username) as $row) {
 			echo "<form action = '../php/questionReview.php'>";
+			
+			echo "<input type='hidden' name='sId' value='".$username."'>";
+			echo "<input type='hidden' name='eName' value='".$row[0]."'>";
+			
 			echo "<TR>";
 			echo "<TD>".$row[0]."</TD>";
 			echo "<TD>".$row[1]." / ".$row[2]."</TD>";
