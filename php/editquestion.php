@@ -32,7 +32,7 @@
 			echo "</TR>";
 			$i = 1;
 			$char = 'A';
-			foreach($dbh->query("select * form Answer") as $ans){
+			foreach($dbh->query("select * from Answer") as $ans){
 				echo "<TR>";
 				echo '<TD>Answer '.$char.':</TD>';
 				echo '<TD><input type="text" name="a'.$i.'" value='.$ans[3].' maxlength="20"></TD>';

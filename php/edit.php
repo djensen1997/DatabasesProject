@@ -28,6 +28,7 @@
 			echo "<table border='1'>";
 			echo "<TR>";
 			echo "<TH> Question Number </TH>";//6
+			echo "<TH> Question </TH>";//0
 			echo "<TH> Correct Choice </TH>";//5
 			echo "<TH> Worth </TH>";//7
 			echo "</TR>";
