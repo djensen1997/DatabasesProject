@@ -40,11 +40,13 @@
 		echo "</TR>";
 
 		foreach ( $dbh->query("select eName, grade, points from eGrade where sId =".$username) as $row) {
+			echo "<form action = '../php/questionReview.php'>";
 			echo "<TR>";
 			echo "<TD>".$row[0]."</TD>";
 			echo "<TD>".$row[1]." / ".$row[2]."</TD>";
-			echo "<TD><Button type='button' onclick='questionReview.php'>Review</Button></TD>";
+			echo "<TD><input type = 'submit'>Review</input></TD>";
 			echo "</TR>";
+			echo "</form>";
 		}
 
 		echo "</table>";
