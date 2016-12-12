@@ -2,7 +2,7 @@
 </head>
 
 <?php
-	$sId = $_POST['sid'];
+	$sId = $_POST['sId'];
 	$eName = $_POST['eName'];
 	$questions;
 	try {
@@ -25,7 +25,11 @@
 		echo "<TR>";
 		echo "<TD>".$question[0]."</TD>";
 		echo "<TD>".$question[1]."</TD>";
-		echo "<TD>".$question[2]."</TD>";
+		if ($question[2] == 0) {
+			echo "<TD>No</TD>";
+		} else {
+			echo "<TD>Yes</TD>";
+		}
 		echo "<TD>".$question[3]."</TD>";
 		echo "</TR>";
 	}
