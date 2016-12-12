@@ -24,7 +24,7 @@
 			echo '<input type="hidden" name="exam" value='.$_POST['exam'].'>';
 			echo '<input type="hidden" name="number" value='.$_POST['number'].'>';
 			echo '<br/><br/><br/>';
-			echo "<table border='0'>";
+			echo "<table border='0' id='qtable'>";
 			echo "<TR>";
 			echo "<TD>Question: </TD>";
 			echo "<TD><input type='text' name='qname' maxlength='255' value='".$name."'></TD>";
