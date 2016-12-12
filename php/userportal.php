@@ -43,6 +43,7 @@
 			echo "<TR>";
 			echo "<TD>".$row[0]."</TD>";
 			echo "<TD>".$row[1]." / ".$row[2]."</TD>";
+			echo "<TD><Button type='button' onclick='questionReview.php'>Review</Button></TD>";
 			echo "</TR>";
 		}
 

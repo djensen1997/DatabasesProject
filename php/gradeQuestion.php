@@ -23,8 +23,8 @@ try {
 	echo '<p>'.$maxNumber.'</p>';
 
 	if ($maxNumber[0]-$number == 0) {
-		$totalScore = $dbh->query('select sum(points) from qGrade where eName="'.$eName.'" and correct=1')->fetch()['sum(points)'];
-		$totalPoint = $dbh->query('select sum(points) from qGrade where eName="'.$eName.'"')->fetch()['sum(points)'];
+		$totalScore = $dbh->query('select sum(points) from qGrade where eName="'.$eName.'" and correct=1 and sId ='.$sId)->fetch()['sum(points)'];
+		$totalPoint = $dbh->query('select sum(points) from qGrade where eName="'.$eName.'" and sId = '.$sId)->fetch()['sum(points)'];
 		$dbh->query('insert into eGrade values("'.$eName.'",'.$totalPoint.','.$totalScore.','.$sId.')');
 		echo '<form method="POST" id="form" action="../php/userportal.php">';
 	} else {
