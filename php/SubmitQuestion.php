@@ -13,7 +13,8 @@
 		$char = 'A';
 		while(isset($_POST['a'.i])){
 			//Answer(qnum, ename, choice, value)
-			$dbh->query("insert into Answer values(".$num.", '".$exam."', '".$char++."', '".$_POST['a'.i]."'')");
+			$dbh->query("insert into Answer values(".$num.", '".$exam."', '".$char."', '".$_POST['a'.i]."')");
+			$char++;
 		}
 		$dbh->query("update Exam set points = points + ".$_POST['points']." where name = '".$exam."'");
 	}catch (PDOException $e){
