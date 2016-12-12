@@ -55,7 +55,7 @@
 			echo "<br/><br/>";
 			echo "<form action='edit.php' method=post>";
 			echo "<input type='submit' name='unimportant' value='Back'>";
-			echo "<input type='hidden' name='exam' value='".$exam."''>";
+			echo "<input type='hidden' name='exam' value='".$_POST['exam']."''>";
 			echo "</form>";
 			echo "</table>";
 			echo "<br/><br/><br/>";
