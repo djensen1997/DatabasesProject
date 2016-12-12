@@ -12,7 +12,7 @@ try {
 
 	echo '<form method="post" action="gradeQuestion.php">';
 
-	$question = $dbh->query('Select number, question, correctAnswer, point from Question where eName = "'.$eName.'" and number='.$number);
+	$question = $dbh->query('Select number, question, correctAnswer, point from Question where eName = "'.$eName.'" and number='.$number)->fetch();
 
 	echo "<p>".$question[0].".) ".$question[1]."</p>";
 
