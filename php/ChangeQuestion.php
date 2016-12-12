@@ -36,6 +36,6 @@
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
 	}
-	header("Location: teacherportal.php");
+	//header("Location: teacherportal.php");
 
 ?>
