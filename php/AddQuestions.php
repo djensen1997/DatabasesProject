@@ -1,4 +1,6 @@
+<head>
 
+</head>
 
 <?php
 $exam;
@@ -49,7 +51,7 @@ if(isset($_POST['points'])){
 	echo "<table border='0'>";
 	echo "<TR>";
 	echo "<TD>Question: </TD>";
-	echo "<TD><input type='text' name='qname' maxlength='255'></TD>";
+	echo "<TD><input type='text' name='qname' maxlength='255' id='qtable'></TD>";
 	echo "<TD>Select the Correct Answer</TD>";
 	echo "</TR>";
 	echo "<TR>";
@@ -68,9 +70,8 @@ if(isset($_POST['points'])){
 	echo "<TD><input type='radio' name='correct' value='C' /></TD>";
 	echo "</TR>";
 	echo "<TR>";
-	echo "<TD>Answer 4: </TD>";
-	echo "<TD><input type='text' name='a4' maxlength='255'></TD>";
-	echo "<TD><input type='radio' name='correct' value='D' /></TD>";
+	echo '<TD></TD><TD><button type="button" onclick="addRow()">Add Another Choice</button></TD>';
+	echo '<TD></TD>';
 	echo "</TR>";
 	echo "<TR>";
 	echo "<TD>Points: <input type='text' name='points'></TD>";
@@ -81,6 +82,24 @@ if(isset($_POST['points'])){
 	echo "</table>";
 	echo "<br/><br/><br/>";
 	echo "Exam Currently Worth ".$points;
-	echo "</body><br/></html>";
+	echo "</body><br/>";
 
 ?>
+
+<script>
+	var row = 4;
+	var letter = 'D';
+	function addRow(){
+		var table = document.getElementByID('qtable');
+		var row = table.insertRow(row);
+		var col = 0;
+		var cell1 = row.insertCell(col++);
+		var cell2 = row.insertCell(col++);
+		var cell3 = row.insertCell(col++);
+		cell1.innerHTML = "Answer " + row + ":";
+		cell2.innerHTML = "<input type='text' name = 'a" + row + "' maxlength='20'>";
+		cell3.innerHTML = "<input type='radio' name='correct' value='"+ letter + "' />";
+		row++;
+		letter += 1;
+	}
+</script>
