@@ -18,7 +18,7 @@
 			$dbh->query("insert into Answer values(".$num.", '".$exam."', '".$char."', '".$_POST['a'.i]."')");
 			$char++;
 			$i++;
-			$index = 'a'.i
+			$index = 'a'.i;
 		}
 		$dbh->query("update Exam set points = points + ".$_POST['points']." where name = '".$exam."'");
 	}catch (PDOException $e){
