@@ -52,6 +52,9 @@
 			echo "<TD><input type='submit' name='edit' value='Submit Changes'></TD>";
 			echo "</form>";
 			echo "</TR>";
+			echo "<form action='edit.php' method=post>";
+			echo "<input type='submit' name='unimportant' value='Back'>";
+			echo "</form>";
 			echo "</table>";
 			echo "<br/><br/><br/>";
 			echo "</body><br/></html>";
