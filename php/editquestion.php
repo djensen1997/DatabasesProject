@@ -51,9 +51,10 @@
 			echo "<TD>Points: <input type='text' name='points' value='".$point."''></TD>";
 			echo "<TD><input type='submit' name='edit' value='Submit Changes'></TD>";
 			echo "</form>";
-			echo "</TR>";
+			echo "</TR><br/>";
 			echo "<form action='edit.php' method=post>";
 			echo "<input type='submit' name='unimportant' value='Back'>";
+			echo "<input type='hidden' name='exam' value='".$exam."''>";
 			echo "</form>";
 			echo "</table>";
 			echo "<br/><br/><br/>";
