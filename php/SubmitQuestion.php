@@ -32,9 +32,9 @@
 	if(isset($_POST['Finish'])){
 		unset($_COOKIE['exam']);
 		unset($_COOKIE['num']);
-		header('Location: teacherportal.php');
+//		header('Location: teacherportal.php');
 	}else{
-		header('Location: AddQuestions.php');
+//		header('Location: AddQuestions.php');
 	}
 
 ?>
