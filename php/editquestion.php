@@ -42,6 +42,8 @@
 				}
 				echo '></TD>';
 				echo "</TR>";
+				$i++;
+				$char++;
 			}
 			echo "<TR>";
 			echo '<TD></TD><TD><button type="button" onclick="addRow()">Add Another Choice</button></TD>';
@@ -50,15 +52,15 @@
 			echo "<TR>";
 			echo "<TD>Points: <input type='text' name='points' value='".$point."''></TD>";
 			echo "<TD><input type='submit' name='edit' value='Submit Changes'></TD>";
-			echo "</TR><br/>";
+			echo "</TR>";
 			echo "</form>";
 			echo "<br/><br/>";
+			echo "</table>";
+			echo "<br/>";
 			echo "<form action='edit.php' method=post>";
 			echo "<input type='submit' name='unimportant' value='Back'>";
 			echo "<input type='hidden' name='exam' value='".$_POST['exam']."''>";
 			echo "</form>";
-			echo "</table>";
-			echo "<br/><br/><br/>";
 			echo "</body><br/></html>";
 		}
 	}catch (PDOException $e){
