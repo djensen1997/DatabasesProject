@@ -11,24 +11,26 @@
 			if(strcmp($row[0], $_POST['qname']) != 0){
 				$dbh->query("update Question set question='".$_POST['qname']."' where eName='".$exam."' and number=".$num);
 			}
-			if(strcmp($row[1], $_POST['a1']) != 0){
-				$dbh->query("update Question set choiceA='".$_POST['a1']."' where eName='".$exam."' and number=".$num);
-			}
-			if(strcmp($row[2], $_POST['a2']) != 0){
-				$dbh->query("update Question set choiceB='".$_POST['a2']."' where eName='".$exam."' and number=".$num);
-			}
-			if(strcmp($row[3], $_POST['a3']) != 0){
-				$dbh->query("update Question set choiceC='".$_POST['a3']."' where eName='".$exam."' and number=".$num);
-			}
-			if(strcmp($row[4], $_POST['a4']) != 0){
-				$dbh->query("update Question set choiceD='".$_POST['a4']."' where eName='".$exam."' and number=".$num);
-			}
 			if(strcmp($row[6], $_POST['correct']) != 0){
 				$dbh->query("update Question set correctAnswer='".$_POST['correct']."' where eName='".$exam."' and number=".$num);
 			}
 			if(strcmp($row[7], $_POST['points']) != 0){
 				$dbh->query("update Question set point='".$_POST['points']."' where eName='".$exam."' and number=".$num);
 			}
+		}
+		$i = 1;
+		$char = 'A';
+		foreach($dbh->query("select * from Answer where eName='".$_POST['exam']."' and number=".$_POST['number']) as $row){
+			if(strcmp($_POST['a'.$i], $row[3]) != 0){
+				$dbh->query("update Answer set value=".$_POST['a'.i]." where eName='".$exam."' and number=".$num);
+			}
+			$i++;
+		}
+		$char = 'A' + ($i-1);
+		while(isset($_POST['a'.$i])){
+			$dbh->query("insert into Answer values(".$num.", '".$exam."', '".$char."', '".$_POST['a'.$i]."')");
+			$i++;
+			$char++;
 		}
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
