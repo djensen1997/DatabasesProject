@@ -27,7 +27,7 @@
 		echo "<TD>".$question[1]."</TD>";
 		echo "<TD>".$question[2]."</TD>";
 		echo "<TD>".$question[3]."</TD>";
-		echo "</TR>"
+		echo "</TR>";
 	}
 	echo "</table>";
 

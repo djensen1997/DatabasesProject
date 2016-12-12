@@ -44,7 +44,7 @@
 			echo "<TR>";
 			echo "<TD>".$row[0]."</TD>";
 			echo "<TD>".$row[1]." / ".$row[2]."</TD>";
-			echo "<TD><input type = 'submit'>Review</input></TD>";
+			echo "<TD><input type = 'submit' value='Review'/></TD>";
 			echo "</TR>";
 			echo "</form>";
 		}
