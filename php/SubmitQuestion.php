@@ -11,6 +11,9 @@
 			$_POST['points'].", '".$_POST['correct']."')");
 		$i = 1;
 		$char = 'A';
+		
+		echo "<script> Console.log(".$_POST['a'.i]."); </script>";
+		
 		while(isset($_POST['a'.i])){
 			//Answer(qnum, ename, choice, value)
 			$dbh->query("insert into Answer values(".$num.", '".$exam."', '".$char."', '".$_POST['a'.i]."')");
