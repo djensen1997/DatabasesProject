@@ -50,8 +50,8 @@
 			echo "<TR>";
 			echo "<TD>Points: <input type='text' name='points' value='".$point."''></TD>";
 			echo "<TD><input type='submit' name='edit' value='Submit Changes'></TD>";
-			echo "</form>";
 			echo "</TR><br/>";
+			echo "</form>";
 			echo "<br/><br/>";
 			echo "<form action='edit.php' method=post>";
 			echo "<input type='submit' name='unimportant' value='Back'>";
