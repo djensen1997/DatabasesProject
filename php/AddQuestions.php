@@ -87,19 +87,19 @@ if(isset($_POST['points'])){
 ?>
 
 <script>
-	var row = 4;
+	var rowN = 4;
 	var letter = 'D';
 	function addRow(){
 		var table = document.getElementById('qtable');
-		var row = table.insertRow(row);
+		var row = table.insertRow(rowN);
 		var col = 0;
 		var cell1 = row.insertCell(col++);
 		var cell2 = row.insertCell(col++);
 		var cell3 = row.insertCell(col++);
-		cell1.innerHTML = "Answer " + row + ":";
-		cell2.innerHTML = "<input type='text' name = 'a" + row + "' maxlength='20'>";
+		cell1.innerHTML = "Answer " + rowN + ":";
+		cell2.innerHTML = "<input type='text' name = 'a" + rowN + "' maxlength='20'>";
 		cell3.innerHTML = "<input type='radio' name='correct' value='"+ letter + "' />";
-		row++;
+		rowN++;
 		letter += 1;
 	}
 </script>
