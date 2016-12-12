@@ -9,7 +9,7 @@
 		//Question(qnum, ename, qname, points, correctChoice)
 		$dbh->query("insert into Question(number,eName,question,point,correctAnswer) values( ".$num.", '".$exam."', '".$_POST['qname']."', ".
 			$_POST['points'].", '".$_POST['correct']."')");
-		$i = 0;
+		$i = 1;
 		$char = 'A';
 		while(isset($_POST['a'.i])){
 			//Answer(qnum, ename, choice, value)
