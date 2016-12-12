@@ -40,7 +40,7 @@
 		echo "</TR>";
 
 		foreach ( $dbh->query("select eName, grade, points from eGrade where sId =".$username) as $row) {
-			echo "<form action = '../php/questionReview.php'>";
+			echo "<form method='post' action = '../php/questionReview.php'>";
 			
 			echo "<input type='hidden' name='sId' value='".$username."'>";
 			echo "<input type='hidden' name='eName' value='".$row[0]."'>";
