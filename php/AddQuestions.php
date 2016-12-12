@@ -92,7 +92,7 @@ if(isset($_POST['points'])){
 		var cell2 = row.insertCell(col++);
 		var cell3 = row.insertCell(col++);
 		cell1.innerHTML = "Answer " + letter + ":";
-		cell2.innerHTML = "<input type='text' name = 'a" + (rowN-2) + "' maxlength='20'>";
+		cell2.innerHTML = "<input type='text' name = 'a" + (rowN) + "' maxlength='20'>";
 		cell3.innerHTML = "<input type='radio' name='correct' value='"+ letter + "' />";
 	}
 </script>
