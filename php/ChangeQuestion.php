@@ -22,7 +22,7 @@
 		$char = 'A';
 		foreach($dbh->query("select * from Answer where eName='".$_POST['exam']."' and number=".$_POST['number']) as $row){
 			if(strcmp($_POST['a'.$i], $row[3]) != 0){
-				$dbh->query("update Answer set value=".$_POST['a'.$i]." where eName='".$exam."' and number=".$num);
+				$dbh->query("update Answer set value='".$_POST['a'.$i]."' where eName='".$exam."' and number=".$num);
 			}
 			$i++;
 			$char++;
