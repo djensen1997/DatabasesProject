@@ -87,10 +87,10 @@ if(isset($_POST['points'])){
 ?>
 
 <script>
-	var rowN = 4;
-	var letter = 'D';
 	function addRow(){
 		var table = document.getElementById('qtable');
+		var rowN = table.rows.length - 2;
+		var letter = 'A' + (rowN-1);
 		var row = table.insertRow(rowN);
 		var col = 0;
 		var cell1 = row.insertCell(col++);
@@ -99,7 +99,5 @@ if(isset($_POST['points'])){
 		cell1.innerHTML = "Answer " + rowN + ":";
 		cell2.innerHTML = "<input type='text' name = 'a" + rowN + "' maxlength='20'>";
 		cell3.innerHTML = "<input type='radio' name='correct' value='"+ letter + "' />";
-		rowN++;
-		letter += 1;
 	}
 </script>
