@@ -15,6 +15,7 @@
 			header("Location: teacherportal.php");
 		}else{
 			foreach($question as $row){
+				$num = $row[5];
 				$name = $row[0];
 				$correct = $row[6];
 				$point = $row[7];
@@ -32,7 +33,7 @@
 			echo "</TR>";
 			$i = 1;
 			$char = 'A';
-			foreach($dbh->query("select * from Answer") as $ans){
+			foreach($dbh->query("select * from Answer where eName=".$POST['exam']." and number=".$num) as $ans){
 				echo "<TR>";
 				echo '<TD>Answer '.$char.':</TD>';
 				echo '<TD><input type="text" name="a'.$i.'" value='.$ans[3].' maxlength="20"></TD>';
