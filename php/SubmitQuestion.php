@@ -7,7 +7,7 @@
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		//Question(qnum, ename, qname, points, correctChoice)
-		$dbh->query("insert into Question values( ".$num.", '".$exam."', '".$_POST['qname']."', ".
+		$dbh->query("insert into Question(number,eName,question,point,correctAnswer) values( ".$num.", '".$exam."', '".$_POST['qname']."', ".
 			$_POST['points'].", '".$_POST['correct']."')");
 		$i = 0;
 		$char = 'A';
