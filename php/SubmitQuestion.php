@@ -13,6 +13,7 @@
 		$char = 'A';
 		$index = 'a'.i;
 		while(isset($_POST[$index])){
+			echo "<script> Console.log(".$_POST['a'.i]."); </script>";
 			//Answer(qnum, ename, choice, value)
 			$dbh->query("insert into Answer values(".$num.", '".$exam."', '".$char."', '".$_POST['a'.i]."')");
 			$char++;
