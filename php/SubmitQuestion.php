@@ -11,6 +11,7 @@
 			$_POST['points'].", '".$_POST['correct']."')");
 		$i = 1;
 		$char = 'A';
+		echo "<script> Console.log(".$_POST['a1']."); </script>";
 		$index = 'a'.i;
 		while(isset($_POST[$index])){
 			echo "<script> Console.log(".$_POST['a'.i]."); </script>";
