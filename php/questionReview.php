@@ -36,6 +36,6 @@
 	echo "</table>";
 	
 	echo "<form action='../php/userportal.php'>";
-	echo "<submit value='Back to User Portal'/>";
+	echo "<input type='submit' value='Back to User Portal'/>";
 	echo "</form>";
 ?>
