@@ -16,10 +16,6 @@
 		}else{
 			foreach($question as $row){
 				$name = $row[0];
-				$choicea = $row[1];
-				$choiceb = $row[2];
-				$choicec = $row[3];
-				$choiced = $row[4];
 				$correct = $row[6];
 				$point = $row[7];
 			}
@@ -34,49 +30,22 @@
 			echo "<TD><input type='text' name='qname' maxlength='255' value='".$name."'></TD>";
 			echo "<TD>Select the Correct Answer</TD>";
 			echo "</TR>";
-			echo "<TR>";
-			echo "<TD>Answer 1: </TD>";
-			echo "<TD><input type='text' name='a1' maxlength='255' value='".$choicea."'></TD>";
-			echo "<TD><input type='radio' name='correct' value='A' ";
-			if(strcmp($correct,'A') == 0){
-				echo 'checked="checked">';
-			}else{
-				echo '>';
+			$i = 1;
+			$char = 'A';
+			foreach($dbh->query("select * form Answer") as $ans){
+				echo "<TR>";
+				echo '<TD>Answer '.$char.':</TD>';
+				echo '<TD><input type="text" name="a'.$i.'" value='.$ans[3].' maxlength="20"></TD>';
+				echo '<TD><input type="radio" name="correct" value='.$char.' ';
+				if(strcmp($correct, $char) == 0){
+					echo 'checked="checked"';
+				}
+				echo '></TD>';
+				echo "</TR>";
 			}
-			echo "</TD>";
-			echo "</TR>";
 			echo "<TR>";
-			echo "<TD>Answer 2: </TD>";
-			echo "<TD><input type='text' name='a2' maxlength='255' value='".$choiceb."'></TD>";
-			echo "<TD><input type='radio' name='correct' value='B'";
-			if(strcmp($correct,'B') == 0){
-				echo 'checked="checked">';
-			}else{
-				echo '/>';
-			}
-			echo  "</TD>";
-			echo "</TR>";
-			echo "<TR>";
-			echo "<TD>Answer 3: </TD>";
-			echo "<TD><input type='text' name='a3' maxlength='255' value='".$choicec."'></TD>";
-			echo "<TD><input type='radio' name='correct' value='C'";
-			if(strcmp($correct,'C') == 0){
-				echo 'checked="checked">';
-			}else{
-				echo '/>';
-			}
-			echo  "</TD>";
-			echo "</TR>";
-			echo "<TR>";
-			echo "<TD>Answer 4: </TD>";
-			echo "<TD><input type='text' name='a4' maxlength='255' value='".$choiced."'></TD>";
-			echo "<TD><input type='radio' name='correct' value='D'";
-			if(strcmp($correct,'D') == 0){
-				echo 'checked="checked">';
-			}else{
-				echo '/>';
-			}
-			echo  "</TD>";
+			echo '<TD></TD><TD><button type="button" onclick="addRow()">Add Another Choice</button></TD>';
+			echo '<TD></TD>';
 			echo "</TR>";
 			echo "<TR>";
 			echo "<TD>Points: <input type='text' name='points' value='".$point."''></TD>";
@@ -97,3 +66,19 @@
 
 
 ?>
+
+<script>
+	function addRow(){
+		var table = document.getElementById('qtable');
+		var rowN = table.rows.length - 2;
+		var letter = String.fromCharCode('A'.charCodeAt(0) + (rowN-1));
+		var row = table.insertRow(rowN);
+		var col = 0;
+		var cell1 = row.insertCell(col++);
+		var cell2 = row.insertCell(col++);
+		var cell3 = row.insertCell(col++);
+		cell1.innerHTML = "Answer " + letter + ":";
+		cell2.innerHTML = "<input type='text' name = 'a" + (rowN) + "' maxlength='20'>";
+		cell3.innerHTML = "<input type='radio' name='correct' value='"+ letter + "' />";
+	}
+</script>

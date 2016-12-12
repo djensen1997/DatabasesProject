@@ -28,11 +28,6 @@
 			echo "<table border='1'>";
 			echo "<TR>";
 			echo "<TH> Question Number </TH>";//6
-			echo "<TH> Quesiton </TH>";//0
-			echo "<TH> Choice A </TH>";//1
-			echo "<TH> Choice B </TH>";//2
-			echo "<TH> Choice C </TH>";//3
-			echo "<TH> Choice D </TH>";//4
 			echo "<TH> Correct Choice </TH>";//5
 			echo "<TH> Worth </TH>";//7
 			echo "</TR>";
@@ -43,13 +38,9 @@
 				echo "<TR>";
 				echo "<TD>".$row[5]."</TD>";
 				echo "<TD>".$row[0]."</TD>";
-				echo "<TD>".$row[1]."</TD>";
-				echo "<TD>".$row[2]."</TD>";
-				echo "<TD>".$row[3]."</TD>";
-				echo "<TD>".$row[4]."</TD>";
 				echo "<TD>".$row[6]."</TD>";
 				echo "<TD>".$row[7]."</TD>";
-				echo '<TD><input type="submit" name="edit" value="Edit"></TD>';
+				echo '<TD><input type="submit" name="edit" value="View/Edit"></TD>';
 				echo '<TD><input type="submit" name="delete" value="Delete"></TD>';
 				echo "</TR>";
 				echo "<input type='hidden' name='exam' value='".$exam."'>";
