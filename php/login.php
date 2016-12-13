@@ -8,7 +8,7 @@
 		foreach($dbh->query("select sid,ePassword from Student") as $row){
 			$password = $dbh->query("select Password('".$row[1]."')")->fetch()[0];
 			if(strcmp($row[0] , $_POST["username"]) == 0){
-				if($password == $_POST["password"]){
+				if(strcmp($password , $_POST["password"])){
 					$reconized = 2;
 				}
 			}
