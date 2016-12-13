@@ -6,7 +6,7 @@
 		#check for each student if the person attempting to login is 
 		#reconized in the system as a student
 		foreach($dbh->query("select sid,ePassword from Student") as $row){
-			$password = dbh->query("select Password('".$row[1]."')");
+			$password = $dbh->query("select Password('".$row[1]."')")->fetch()[0];
 			if(strcmp($row[0] , $_POST["username"]) == 0){
 				if($password == $_POST["password"]){
 					$reconized = 2;
