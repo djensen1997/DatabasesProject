@@ -47,6 +47,7 @@
 				echo '<input type="submit" name="student" value="Create New Student" /> </br>';
 			echo '</form>';
 		echo '</form>';
+		//special thanks the the cat api for making random cat gifs possible
 		echo '<a href="https://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>';
 	echo '</body>';
 ?>

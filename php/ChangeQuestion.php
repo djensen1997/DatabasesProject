@@ -1,3 +1,5 @@
+<!--if a value was changed while viewing questions, this updates it in the table -->
+
 <?php
 
 	$exam = $_POST['exam'];
@@ -7,6 +9,8 @@
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$question = $dbh->query("select * from Question where eName='".$_POST['exam']."' and number=".$_POST['number']);
+		//goes through each value in the question and answer to see if something changed
+		//if a value did change, it updates it
 		foreach($question as $row){
 			if(strcmp($row[0], $_POST['qname']) != 0){
 				$dbh->query("update Question set question='".$_POST['qname']."' where eName='".$exam."' and number=".$num);
@@ -36,6 +40,7 @@
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
 	}
+	//return to the teacher portal when completed
 	header("Location: teacherportal.php");
 
 ?>

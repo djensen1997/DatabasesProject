@@ -1,3 +1,6 @@
+<!--basically the sane code as the add question page, except if fills in values for the exam
+	and has a back button in case you don't actually want to change the question-->
+
 <?php 
 
 	try{
@@ -35,6 +38,7 @@
 			echo "</TR>";
 			$i = 1;
 			$char = 'A';
+			//creates a table will all the values filled in for a givin exam
 			foreach($dbh->query("select * from Answer where eName='".$_POST['exam']."' and number=".$num) as $ans){
 				echo "<TR>";
 				echo '<TD>Answer '.$char.':</TD>';
@@ -48,6 +52,8 @@
 				$i++;
 				$char++;
 			}
+			//adds support for adding more answers to a question with the same script used in the add
+			//question page
 			echo "<TR>";
 			echo '<TD></TD><TD><button type="button" onclick="addRow()">Add Another Choice</button></TD>';
 			echo '<TD></TD>';
@@ -61,7 +67,7 @@
 			echo "</form>";
 			echo "<br/>";
 
-
+			//the back button
 			echo "<form action='edit.php' method=post>";
 				echo "<input type='submit' name='unimportant' value='Back'>";
 				echo "<input type='hidden' name='exam' value='".$_POST['exam']."''>";
@@ -80,6 +86,7 @@
 ?>
 
 <script>
+	//a script that adds a row to a table to add more answers to a question
 	function addRow(){
 		var table = document.getElementById('qtable');
 		var rowN = table.rows.length - 2;

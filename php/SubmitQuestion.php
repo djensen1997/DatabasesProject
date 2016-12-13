@@ -1,4 +1,4 @@
-
+<!--used to create submit the created exam questions-->
 
 <?php
 	$exam = $_COOKIE['exam'];
@@ -7,12 +7,13 @@
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		//Question(qnum, ename, qname, points, correctChoice)
-		$dbh->query("insert into Question(number,eName,question,point,correctAnswer) values( ".$num.", '".$exam."', '".$_POST['qname']."', ".
-			$_POST['points'].", '".$_POST['correct']."')");
+		//insert the question, with its point worth, and correct answer letter choice
 		$stmt = $dbh->prepare("insert into Question(number,eName,question,point,correctAnswer) values( :num, :exam, :qname, :points".
 			", :correct)");
 		$stmt->execute(array("num" => $num, "exam" => $exam, "qname" => $_POST['qname'], 
 			"points" => $_POST['points'], "correct" => $_POST['correct']));
+		//a loop that goes through each answer until a.$i is not defined in POST
+		//inserts each answer into the Answer table
 		$i = 1;
 		$char = 'A';
 		echo "<script> Console.log(".$_POST['a1']."); </script>";
@@ -26,6 +27,7 @@
 			$i++;
 			$index = 'a'.$i;
 		}
+		//updates the exams total points
 		$stmt = $dbh->prepare("update Exam set points = points + ".$_POST['points']." where name = :exam");
 		$stmt->execute(array("exam" => $exam));
 	}catch (PDOException $e){
@@ -33,7 +35,7 @@
 		die();
 	}
 	$num += 1;
-
+	//update the num cookie and decide what to do next based on user input
 	setcookie('num', $num,  time() + (86400/48), "/");
 	if(isset($_POST['Finish'])){
 		unset($_COOKIE['exam']);
