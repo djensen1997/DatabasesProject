@@ -10,7 +10,7 @@
 		$dbh->query("insert into Question(number,eName,question,point,correctAnswer) values( ".$num.", '".$exam."', '".$_POST['qname']."', ".
 			$_POST['points'].", '".$_POST['correct']."')");
 		$stmt = $dbh->prepare("insert into Question(number,eName,question,point,correctAnswer) values( :num, :exam, :qname, :points".
-			.", :correct)");
+			", :correct)");
 		$stmt->execute(array("num" => $num, "exam" => $exam, "qname" => $_POST['qname'], 
 			"points" => $_POST['points'], "correct" => $_POST['correct']));
 		$i = 1;
