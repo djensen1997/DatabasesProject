@@ -1,0 +1,96 @@
+Database changed
+MariaDB [ejmoore]> describe eGrade \g;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| eName  | varchar(255) | YES  |     | NULL    |       |
+| points | int(11)      | YES  |     | NULL    |       |
+| grade  | int(11)      | YES  |     | NULL    |       |
+| sId    | int(11)      | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+ERROR: No query specified
+
+MariaDB [ejmoore]> describe Answer \g;
++--------+--------------+------+-----+---------+-------+
+| Field  | Type         | Null | Key | Default | Extra |
++--------+--------------+------+-----+---------+-------+
+| number | int(11)      | NO   | PRI | 0       |       |
+| eName  | varchar(20)  | NO   | PRI |         |       |
+| choice | char(1)      | NO   | PRI |         |       |
+| value  | varchar(255) | YES  |     | NULL    |       |
++--------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+ERROR: No query specified
+
+MariaDB [ejmoore]> describe Exam \g;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| points | int(11)     | YES  |     | NULL    |       |
+| name   | varchar(20) | NO   | PRI |         |       |
+| cDate  | datetime    | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+ERROR: No query specified
+
+MariaDB [ejmoore]> describe qGrade \g;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| sId     | int(11)     | NO   | PRI | 0       |       |
+| eName   | varchar(20) | NO   | PRI |         |       |
+| number  | int(11)     | NO   | PRI | 0       |       |
+| correct | tinyint(1)  | YES  |     | NULL    |       |
+| points  | int(11)     | NO   |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+ERROR: No query specified
+
+MariaDB [ejmoore]> describe Question \g;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| question      | varchar(255) | YES  |     | NULL    |       |
+| choiceA       | varchar(20)  | YES  |     | NULL    |       |
+| choiceB       | varchar(20)  | YES  |     | NULL    |       |
+| choiceC       | varchar(20)  | YES  |     | NULL    |       |
+| choiceD       | varchar(20)  | YES  |     | NULL    |       |
+| number        | int(11)      | NO   | PRI | 0       |       |
+| correctAnswer | char(1)      | YES  |     | NULL    |       |
+| point         | int(11)      | YES  |     | NULL    |       |
+| eName         | varchar(20)  | NO   | PRI |         |       |
++---------------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+ERROR: No query specified
+
+MariaDB [ejmoore]> describe Student \g;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| sId       | int(11)      | NO   | PRI | NULL    |       |
+| name      | varchar(20)  | YES  |     | NULL    |       |
+| major     | varchar(20)  | YES  |     | NULL    |       |
+| ePassword | varchar(255) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+ERROR: No query specified
+
+MariaDB [ejmoore]> describe Teacher \g;
++-----------+--------------+------+-----+---------+-------+
+| Field     | Type         | Null | Key | Default | Extra |
++-----------+--------------+------+-----+---------+-------+
+| tId       | int(11)      | NO   | PRI | NULL    |       |
+| ePassword | varchar(255) | YES  |     | NULL    |       |
++-----------+--------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+ERROR: No query specified
+
+
