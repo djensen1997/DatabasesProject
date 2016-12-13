@@ -14,7 +14,8 @@ if(isset($_POST['exam_name']) && !isset($_POST['points'])){
 	try{
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$dbh->query("insert into Exam values(0, '".$exam."', CURDATE())");
+		$stmt = $dbh->prepare("insert into Exam values(0, :exam , CURDATE())");
+		$stmt->execute(array('exam' => $exam));
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();

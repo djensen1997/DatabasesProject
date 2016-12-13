@@ -9,6 +9,10 @@
 		//Question(qnum, ename, qname, points, correctChoice)
 		$dbh->query("insert into Question(number,eName,question,point,correctAnswer) values( ".$num.", '".$exam."', '".$_POST['qname']."', ".
 			$_POST['points'].", '".$_POST['correct']."')");
+		$stmt = $dbh->prepare("insert into Question(number,eName,question,point,correctAnswer) values( :num, :exam, :qname, :points".
+			.", :correct)");
+		$stmt->execute(array("num" => $num, "exam" => $exam, "qname" => $_POST['qname'], 
+			"points" => $_POST['points'], "correct" => $_POST['correct']));
 		$i = 1;
 		$char = 'A';
 		echo "<script> Console.log(".$_POST['a1']."); </script>";
@@ -16,12 +20,14 @@
 		while(isset($_POST[$index])){
 			echo "<script> Console.log(".$_POST['a'.$i]."); </script>";
 			//Answer(qnum, ename, choice, value)
-			$dbh->query("insert into Answer values(".$num.", '".$exam."', '".$char."', '".$_POST['a'.$i]."')");
+			$stmt = $dbh->prepare("insert into Answer values(".$num.", :exam, '".$char."', :value)");
+			$stmt->execute(array("exam" => $exam, "value" => $_POST['a'.$i]));
 			$char++;
 			$i++;
 			$index = 'a'.$i;
 		}
-		$dbh->query("update Exam set points = points + ".$_POST['points']." where name = '".$exam."'");
+		$stmt = $dbh->prepare("update Exam set points = points + ".$_POST['points']." where name = :exam");
+		$stmt->execute(array("exam") => $exam);
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
