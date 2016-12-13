@@ -56,10 +56,6 @@ MariaDB [ejmoore]> describe Question \g;
 | Field         | Type         | Null | Key | Default | Extra |
 +---------------+--------------+------+-----+---------+-------+
 | question      | varchar(255) | YES  |     | NULL    |       |
-| choiceA       | varchar(20)  | YES  |     | NULL    |       |
-| choiceB       | varchar(20)  | YES  |     | NULL    |       |
-| choiceC       | varchar(20)  | YES  |     | NULL    |       |
-| choiceD       | varchar(20)  | YES  |     | NULL    |       |
 | number        | int(11)      | NO   | PRI | 0       |       |
 | correctAnswer | char(1)      | YES  |     | NULL    |       |
 | point         | int(11)      | YES  |     | NULL    |       |
