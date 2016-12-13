@@ -18,8 +18,9 @@
 			#check for each teacher if the person attempting to login is 
 			#reconized in the system as a teacher
 			foreach($dbh->query("select tid,password from Teacher") as $row){
-				if(strcmp($row[0], $_POST["username"]) == 0){
-					if($row[1] == $_POST["password"]){
+				$password = $dbh->query("select Password('".$row[1]."')")->fetch()[0];
+				if(strcmp($password , $_POST["username"]) == 0){
+					if(strcmp($row[1] , $_POST["password"])){
 						$reconized = 3;
 					}
 				}
