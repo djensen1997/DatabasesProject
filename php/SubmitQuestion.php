@@ -27,7 +27,7 @@
 			$index = 'a'.$i;
 		}
 		$stmt = $dbh->prepare("update Exam set points = points + ".$_POST['points']." where name = :exam");
-		$stmt->execute(array("exam") => $exam);
+		$stmt->execute(array("exam" => $exam));
 	}catch (PDOException $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
