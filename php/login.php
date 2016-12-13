@@ -5,9 +5,10 @@
 		$reconized = 0;
 		#check for each student if the person attempting to login is 
 		#reconized in the system as a student
-		foreach($dbh->query("select sid,password from Student") as $row){
+		foreach($dbh->query("select sid,ePassword from Student") as $row){
+			$password = $dbh->query("select Password('".$_POST["password"]."')")->fetch()[0];
 			if(strcmp($row[0] , $_POST["username"]) == 0){
-				if($row[1] == $_POST["password"]){
+				if(strcmp($password , $row[1]) == 0){
 					$reconized = 2;
 				}
 			}
@@ -16,9 +17,10 @@
 		if($reconized == 0){
 			#check for each teacher if the person attempting to login is 
 			#reconized in the system as a teacher
-			foreach($dbh->query("select tid,password from Teacher") as $row){
-				if(strcmp($row[0], $_POST["username"]) == 0){
-					if($row[1] == $_POST["password"]){
+			foreach($dbh->query("select tid,ePassword from Teacher") as $row){
+				$password = $dbh->query("select Password('".$_POST["password"]."')")->fetch()[0];
+				if(strcmp($row[0] , $_POST["username"]) == 0){
+					if(strcmp($row[1] , $password) == 0){
 						$reconized = 3;
 					}
 				}
