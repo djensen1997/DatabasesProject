@@ -38,7 +38,7 @@
 		echo "<TH> Exam Name </TH>";
 		echo "<TH> Grade / Points </TH>";
 		echo "</TR>";
-
+		#lists exam grades for a given student
 		foreach ( $dbh->query("select eName, grade, points from eGrade where sId =".$username) as $row) {
 			echo "<form method='post' action = '../php/questionReview.php'>";
 			
@@ -54,7 +54,7 @@
 		}
 
 		echo "</table>";
-
+		#a special thanks the the cat api for giving us cute animated cats on are exam site
 		echo '<a href="https://thecatapi.com"><img src="http://thecatapi.com/api/images/get?format=src&type=gif"></a>';
 	echo '</body>';
 ?>
