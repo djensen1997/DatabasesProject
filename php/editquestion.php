@@ -1,3 +1,6 @@
+<!--basically the sane code as the add question page, except if fills in values for the exam
+	and has a back button in case you don't actually want to change the question-->
+
 <?php 
 
 	try{

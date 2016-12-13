@@ -24,7 +24,9 @@
 		echo '</br> </br> </br> </br>'; #spacing
 		#the acutal exam selection
 		echo 'Questions </br>';
-		
+			#lists out questions by name, thier point worth, correct answer and number
+			#adds 2 buttons next to the question, 1 for viewing/editing the question
+			#the other deletes the question from the exam
 			echo "<table border='1'>";
 			echo "<TR>";
 			echo "<TH> Question Number </TH>";//6
@@ -50,6 +52,7 @@
 				
 			}
 			echo '</table>';
+			#add question button, for when you don't have enough questions
 			echo '<form action="AddQuestions.php" method="post">';
 				echo '<input type="hidden" name="exam_name" value="'.$exam.'" >';
 				echo '<input type="hidden" name="points" value="'.$points.'" >';
