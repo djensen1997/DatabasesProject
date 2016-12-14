@@ -5,9 +5,11 @@
 	$exam = $_POST['exam'];
 	$num = $_POST['number'];
 	$question;
+	$dbh;
 	try{
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransation();
 		$question = $dbh->query("select * from Question where eName='".$_POST['exam']."' and number=".$_POST['number']);
 		//goes through each value in the question and answer to see if something changed
 		//if a value did change, it updates it
@@ -36,7 +38,9 @@
 			$i++;
 			$char++;
 		}
-	}catch (PDOException $e){
+		$dbh->commit();
+	}catch (Exception $e){
+		$dbh->rollback();
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
 	}

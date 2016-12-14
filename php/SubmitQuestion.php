@@ -3,9 +3,11 @@
 <?php
 	$exam = $_COOKIE['exam'];
 	$num = $_COOKIE['num'];
+	$dbh;
 	try{
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
 		//Question(qnum, ename, qname, points, correctChoice)
 		//insert the question, with its point worth, and correct answer letter choice
 		$stmt = $dbh->prepare("insert into Question(number,eName,question,point,correctAnswer) values( :num, :exam, :qname, :points".
@@ -30,7 +32,9 @@
 		//updates the exams total points
 		$stmt = $dbh->prepare("update Exam set points = points + ".$_POST['points']." where name = :exam");
 		$stmt->execute(array("exam" => $exam));
-	}catch (PDOException $e){
+		$dbh->commit();
+	}catch (Exception $e){
+		$dbh->rollback();
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
 	}

@@ -5,6 +5,7 @@
 <?php
 $exam;
 $points = 0;
+$dbh;
 //basically, if this came from the newExam page, it executes this code
 if(isset($_POST['exam_name']) && !isset($_POST['points'])){
 	//cookie only lasts 30 minutes
@@ -16,11 +17,14 @@ if(isset($_POST['exam_name']) && !isset($_POST['points'])){
 		//connect to the server
 		$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$dbh->beginTransaction();
 		//insert the exam
 		$stmt = $dbh->prepare("insert into Exam values(0, :exam , CURDATE())");
 		$stmt->execute(array('exam' => $exam));
-	}catch (PDOException $e){
+		$dbh->commit();
+	}catch (Exception $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
+		$dbh->rollback();
 		die();
 	}
 //if this was opened from anywhere else, it executes this code
@@ -44,7 +48,7 @@ if(isset($_POST['exam_name']) && !isset($_POST['points'])){
 				$points = $temp[0];
 			}
 		}
-	}catch (PDOException $e){
+	}catch (Exception $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
 		die();
 	}

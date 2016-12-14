@@ -1,8 +1,10 @@
 <?php
 #handles adding new accunts to the exam server
+	$dbh;
 		try{
 			$dbh = new PDO('mysql:host=classdb.it.mtu.edu;dbname=ejmoore', "cs3425gr", "cs3425gr");
 			$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$dbh->beginTransaction();
 			#call the add post procedure
 			if(isset($_POST['sid']) && isset($_POST['password']) && isset($_POST['confirm'])){
 				if(strcmp($_POST['password'], $_POST['confirm']) == 0){
@@ -15,8 +17,9 @@
 				header('Location: ../html/newUser.html?msg='.urldecode("A field is blank"));
 			}
 			
-			
-		}catch (PDOException $e){
+			$dbh->commit();
+		}catch (Exception $e){
+			$dbh->rollback();
 			print "ERROR!" . $e->getMessage()."<br/>";
 			header('Location: ../html/newUser.html');
 		}
