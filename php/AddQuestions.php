@@ -50,7 +50,6 @@ if(isset($_POST['exam_name']) && !isset($_POST['points'])){
 		}
 	}catch (Exception $e){
 		print "ERROR!" . $e->getMessage()."<br/>";
-		die();
 	}
 }
 if(isset($_POST['points'])){

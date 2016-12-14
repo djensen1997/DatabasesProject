@@ -36,7 +36,6 @@
 	}catch (Exception $e){
 		$dbh->rollback();
 		print "ERROR!" . $e->getMessage()."<br/>";
-		die();
 	}
 	$num += 1;
 	//update the num cookie and decide what to do next based on user input

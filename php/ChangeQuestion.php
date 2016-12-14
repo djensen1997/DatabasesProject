@@ -42,7 +42,6 @@
 	}catch (Exception $e){
 		$dbh->rollback();
 		print "ERROR!" . $e->getMessage()."<br/>";
-		die();
 	}
 	//return to the teacher portal when completed
 	header("Location: teacherportal.php");
